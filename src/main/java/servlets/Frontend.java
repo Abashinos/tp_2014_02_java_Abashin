@@ -17,9 +17,13 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class Frontend extends HttpServlet{
 
-    private final static String VALID_USERNAME = "test_name";
-    private final static String VALID_PASSWORD = "test_pass";
+    private final static Map<String, String> VALID_DATA = new HashMap<>();
     private AtomicLong userIdGenerator = new AtomicLong();
+
+    static {
+        VALID_DATA.put("test_name", "test_pass");
+        VALID_DATA.put("test_name2", "test_pass2");
+    }
 
     public static String getTime() {
         Date date = new Date();
@@ -74,9 +78,10 @@ public class Frontend extends HttpServlet{
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String requestUsername = request.getParameter("username");
         String requestPassword = request.getParameter("password");
+        Boolean isValid = VALID_DATA.containsKey(requestUsername) && VALID_DATA.get(requestUsername).equals(requestPassword);
 
         Map <String, Object> pageVars = new HashMap<>();
-        if (requestUsername.equals(VALID_USERNAME) && requestPassword.equals(VALID_PASSWORD)) {
+        if (isValid) {
             Long userId = userIdGenerator.getAndIncrement();
             request.getSession().setAttribute("userId", userId);
             response.sendRedirect("/timer");
