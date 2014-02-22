@@ -64,11 +64,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Frontend.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Frontend.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Frontend.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="773" selection-end="773" vertical-scroll-proportion="0.50341684" vertical-offset="0" max-vertical-offset="1462">
-              <folding />
+            <state line="58" column="0" selection-start="1971" selection-end="1971" vertical-scroll-proportion="-8.038462" vertical-offset="777" max-vertical-offset="1292">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Redirector.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Redirector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="29" selection-start="579" selection-end="579" vertical-scroll-proportion="0.61959" vertical-offset="0" max-vertical-offset="493">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,7 +89,7 @@
       <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="65" selection-start="72" selection-end="133" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="578">
+            <state line="5" column="65" selection-start="72" selection-end="133" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="578">
               <folding />
             </state>
           </provider>
@@ -85,7 +98,7 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="1" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="153">
+            <state line="3" column="1" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
               <folding />
             </state>
           </provider>
@@ -109,22 +122,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PageGenerator.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/generator/PageGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="29" selection-start="776" selection-end="776" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="0" selection-start="1559" selection-end="1559" vertical-scroll-proportion="0.0" vertical-offset="173" max-vertical-offset="901">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="25" column="50" selection-start="963" selection-end="963" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="748">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -132,7 +134,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="18" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="714">
+            <state line="10" column="18" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="31" max-vertical-offset="714">
               <folding />
             </state>
           </provider>
@@ -169,7 +171,6 @@
         <option value="$PROJECT_DIR$/templates/refresher.html" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/main/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Refresher/JettyServer.java" />
         <option value="$PROJECT_DIR$/static/style.css" />
         <option value="$PROJECT_DIR$/templates/login.html" />
@@ -178,7 +179,10 @@
         <option value="$PROJECT_DIR$/static/js/refresh.js" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/timer.html" />
+        <option value="$PROJECT_DIR$/src/main/java/generator/PageGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/main/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/Frontend.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/Redirector.java" />
       </list>
     </option>
   </component>
@@ -223,6 +227,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -403,7 +408,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -732,15 +736,16 @@
       <workItem from="1392624562502" duration="206000" />
       <workItem from="1392804925414" duration="2856000" />
       <workItem from="1392986552414" duration="1080000" />
+      <workItem from="1393042946328" duration="3539000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26674000" />
+    <option name="totallyTimeSpent" value="30213000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1552" height="842" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -762,7 +767,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26037484" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32215744" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32215744" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -791,26 +796,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/js/refresh.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="19" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/generator/PageGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="29" selection-start="776" selection-end="776" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="544">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="0" selection-start="1559" selection-end="1559" vertical-scroll-proportion="0.0" vertical-offset="173" max-vertical-offset="901">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -831,7 +820,9 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Frontend.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="83" column="66" selection-start="3010" selection-end="3010" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -866,16 +857,16 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/generator/PageGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="80" selection-start="765" selection-end="765" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="765">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -889,7 +880,9 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Frontend.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="83" column="66" selection-start="3010" selection-end="3010" vertical-scroll-proportion="0.0" vertical-offset="1377" max-vertical-offset="1377">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -924,16 +917,16 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/generator/PageGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="49" selection-start="683" selection-end="683" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="901">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -947,7 +940,9 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Frontend.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="83" column="66" selection-start="3010" selection-end="3010" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -982,7 +977,9 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/generator/PageGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -996,16 +993,16 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="22" selection-start="870" selection-end="870" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="901">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Frontend.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="83" column="66" selection-start="3010" selection-end="3010" vertical-scroll-proportion="0.0" vertical-offset="1411" max-vertical-offset="1598">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1040,7 +1037,9 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/generator/PageGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1061,23 +1060,25 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="22" selection-start="607" selection-end="607" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="459">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Frontend.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="8" selection-start="590" selection-end="590" vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="527">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/generator/PageGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="39" selection-start="705" selection-end="705" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="510">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1091,13 +1092,6 @@
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="18" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="714">
           <folding />
         </state>
       </provider>
@@ -1116,20 +1110,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="1" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="65" selection-start="72" selection-end="133" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="578">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="10" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="306">
@@ -1137,26 +1117,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="18" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="65" selection-start="72" selection-end="133" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="578">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="1" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="1559" selection-end="1559" vertical-scroll-proportion="0.0" vertical-offset="173" max-vertical-offset="901">
+        <state line="25" column="50" selection-start="963" selection-end="963" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="748">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/generator/PageGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="65" selection-start="625" selection-end="625" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/generator/PageGenerator.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/util/concurrent/atomic/AtomicLong.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="29" selection-start="776" selection-end="776" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+        <state line="172" column="22" selection-start="4513" selection-end="4513" vertical-scroll-proportion="0.3325359" vertical-offset="2224" max-vertical-offset="4284">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Frontend.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="773" selection-end="773" vertical-scroll-proportion="0.50341684" vertical-offset="0" max-vertical-offset="1462">
-          <folding />
+        <state line="58" column="0" selection-start="1971" selection-end="1971" vertical-scroll-proportion="-8.038462" vertical-offset="777" max-vertical-offset="1292">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Redirector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="29" selection-start="579" selection-end="579" vertical-scroll-proportion="0.61959" vertical-offset="0" max-vertical-offset="493">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

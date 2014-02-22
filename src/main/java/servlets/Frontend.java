@@ -6,11 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
@@ -25,13 +21,6 @@ public class Frontend extends HttpServlet{
         VALID_DATA.put("test_name2", "test_pass2");
     }
 
-    public static String getTime() {
-        Date date = new Date();
-        date.getTime();
-        DateFormat dateFormat = new SimpleDateFormat("HH.mm.ss");
-        return dateFormat.format(date);
-    }
-
     public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html;charset=utf-8");
@@ -42,14 +31,8 @@ public class Frontend extends HttpServlet{
         switch(request.getPathInfo()) {
             case "/index":
             {
-                HttpSession session = request.getSession();
                 page = "index.html";
-                Long userId = (Long) session.getAttribute("userId");
-                if (userId == null) {
-                    response.sendRedirect("/login");
-                } else {
-                    pageVars.put("userId", userId);
-                }
+                Redirector.redirect(request, response, pageVars);
                 break;
             }
             case "/login":
@@ -60,13 +43,7 @@ public class Frontend extends HttpServlet{
             case "/timer":
             {
                 page = "timer.html";
-                HttpSession session = request.getSession();
-                Long userId = (Long) session.getAttribute("userId");
-                if (userId == null) {
-                    response.sendRedirect("/login");
-                } else {
-                    pageVars.put("userId", userId);
-                }
+                Redirector.redirect(request, response, pageVars);
                 break;
             }
 
@@ -78,11 +55,11 @@ public class Frontend extends HttpServlet{
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String requestUsername = request.getParameter("username");
         String requestPassword = request.getParameter("password");
-        Boolean isValid = VALID_DATA.containsKey(requestUsername) && VALID_DATA.get(requestUsername).equals(requestPassword);
+        boolean isValid = VALID_DATA.containsKey(requestUsername) && VALID_DATA.get(requestUsername).equals(requestPassword);
 
         Map <String, Object> pageVars = new HashMap<>();
         if (isValid) {
-            Long userId = userIdGenerator.getAndIncrement();
+            long userId = userIdGenerator.getAndIncrement();
             request.getSession().setAttribute("userId", userId);
             response.sendRedirect("/timer");
         } else {

@@ -23,7 +23,6 @@ public class Main {
         context.addServlet(new ServletHolder(frontend), "/*");
 
         ResourceHandler resourceHandler = new ResourceHandler();
-        resourceHandler.setDirectoriesListed(true);
         resourceHandler.setResourceBase("static");
 
         RewriteHandler rewriteHandler = new RewriteHandler();
@@ -41,7 +40,7 @@ public class Main {
 
         server.setHandler(handList);
 
-        server.start();
+         server.start();
         server.join();
     }
 }
