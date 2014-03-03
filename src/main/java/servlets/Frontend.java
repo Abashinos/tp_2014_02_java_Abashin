@@ -21,23 +21,18 @@ public class Frontend extends HttpServlet{
         VALID_DATA.put("test_name2", "test_pass2");
     }
 
+    @Override
     public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         String page = "index.html";
         Map<String, Object> pageVars = new HashMap<>();
 
-        switch(request.getPathInfo()) {
+        switch(request.getRequestURI()) {
             case "/index":
             {
                 page = "index.html";
                 Redirector.redirect(request, response, pageVars);
-                break;
-            }
-            case "/login":
-            {
-                page = "login.html";
                 break;
             }
             case "/timer":
@@ -52,6 +47,7 @@ public class Frontend extends HttpServlet{
 
     }
 
+    @Override
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String requestUsername = request.getParameter("username");
         String requestPassword = request.getParameter("password");

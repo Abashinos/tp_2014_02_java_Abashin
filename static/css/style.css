@@ -2,3 +2,22 @@ img {
     width: 200px;
     height: 200px;
 }
+
+a {
+    display: block;
+
+    margin: 5px 0 5px 5px;
+
+    width: 100px;
+    height: 20px;
+
+    background-color: #298386;
+    color: #EEEEEE;
+
+    text-align: center;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #151B8D;
+}
