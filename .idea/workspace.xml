@@ -73,10 +73,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Redirector.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Redirector.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Redirector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="680">
+            <state line="14" column="0" selection-start="462" selection-end="462" vertical-scroll-proportion="0.32535884" vertical-offset="0" max-vertical-offset="680">
               <folding />
             </state>
           </provider>
@@ -91,10 +91,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignupServlet.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SignupServlet.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/servlets/SignupServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="22" selection-start="1981" selection-end="1981" vertical-scroll-proportion="0.40669855" vertical-offset="663" max-vertical-offset="1377">
+            <state line="53" column="52" selection-start="1735" selection-end="1981" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1377">
               <folding />
             </state>
           </provider>
@@ -857,12 +857,12 @@
       <workItem from="1393042946328" duration="3864000" />
       <workItem from="1393649065009" duration="3746000" />
       <workItem from="1393692637044" duration="9842000" />
-      <workItem from="1393834936351" duration="13477000" />
+      <workItem from="1393834936351" duration="13810000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57603000" />
+    <option name="totallyTimeSpent" value="57936000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -885,7 +885,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1552" height="842" extended-state="6" />
+    <frame x="-8" y="-8" width="1552" height="842" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1266,13 +1266,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Redirector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="680">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Frontend.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="16" selection-start="2153" selection-end="2153" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1071">
@@ -1282,7 +1275,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/SignupServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="22" selection-start="1981" selection-end="1981" vertical-scroll-proportion="0.40669855" vertical-offset="663" max-vertical-offset="1377">
+        <state line="53" column="52" selection-start="1735" selection-end="1981" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1377">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Redirector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="462" selection-end="462" vertical-scroll-proportion="0.32535884" vertical-offset="0" max-vertical-offset="680">
           <folding />
         </state>
       </provider>
