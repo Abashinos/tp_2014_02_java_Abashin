@@ -6,25 +6,30 @@
     <link href="/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div>
-        <#if errorMessage??>
-            <p>${errorMessage}</p>
-            <img src="/img/sad_doge.jpg" />
-        <#else>
-            <img src="/img/doge.jpeg" />
-        </#if>
-    </div>
+    <div class="content">
+        <div>
+            <#if errorMessage??>
+                <p id="errormessage">${errorMessage}</p>
+                <img src="/img/sad_doge.jpg" />
+            <#else>
+                <img src="/img/doge.jpeg" />
+            </#if>
+        </div>
 
-    <form method="post">
-        <label for="username" title="Username: ">
-            <input id="username" type="text" name="username"/>
-        </label>
-        <br />
-        <label for="password" title="Password: ">
-            <input id="password" type="text" name="password"/>
-        </label>
-        <input type="submit" value="Log in" />
-    </form>
-    <a href="/signup">Sign up here</a>
+        <form method="post">
+            <label for="username" title="Username: ">
+                <input id="username" type="text" name="username"/>
+            </label>
+            <label for="password" title="Password: ">
+                <input id="password" type="text" name="password"/>
+            </label>
+            <label title="Submit">
+                <input type="submit" value="Log in" />
+            </label>
+        </form>
+        <div class="pages">
+            <a href="/signup">Sign up here</a>
+        </div>
+    </div>
 </body>
 </html>

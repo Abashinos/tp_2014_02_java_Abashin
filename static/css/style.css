@@ -1,4 +1,10 @@
+body {
+    background-color: #D0E0F0;
+}
+
+
 img {
+    margin-top: 5px;
     width: 200px;
     height: 200px;
 }
@@ -6,7 +12,7 @@ img {
 a {
     display: block;
 
-    margin: 5px 0 5px 5px;
+    margin: 0 auto 5px auto;
 
     width: 100px;
     height: 20px;
@@ -20,4 +26,55 @@ a {
 
 a:hover {
     background-color: #151B8D;
+}
+
+#errormessage {
+    display: block;
+
+    margin: 0 auto 5px auto;
+
+    height: 20px;
+
+    background-color: #860f0b;
+    color: #EEEEEE;
+
+    text-align: center;
+}
+
+.content {
+    width: 300px;
+    height: 400px;
+    display: block;
+    position: relative;
+    margin: 10px 0 0 20px;
+    text-align: center;
+
+    background-color: white;
+}
+
+.headers, .pages {
+    width: 200px;
+    margin: 5px auto 0 auto;
+}
+
+.info-header {
+    position: relative;
+    padding-top: 10px;
+    color: #222222;
+}
+
+label {
+    width: 200px;
+    height: 20px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    display: block;
+}
+
+input {
+    width: 150px;
+}
+
+.submit {
+    display: block;
 }

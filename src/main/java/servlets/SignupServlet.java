@@ -24,20 +24,10 @@ public class SignupServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
 
-        String page;
+        String page = "login.html";
         Map<String, Object> pageVars = new HashMap<>();
 
-        switch (request.getRequestURI()) {
-            case "/signup":
-                page = "signup.html";
-                break;
-            default:
-                page = "login.html";
-        }
-
-        Redirector.redirect(request, response, pageVars);
-
-        response.getWriter().println(PageGenerator.getPage(page, pageVars));
+        Redirector.redirect(request, response, page, pageVars);
     }
 
     @Override
@@ -50,13 +40,8 @@ public class SignupServlet extends HttpServlet {
 
         switch (request.getRequestURI()) {
             case ("/login"):
-                if (userAccount.login(request, inputUsername, inputPassword)) {
+                if (!inputUsername.equals("") && !inputPassword.equals("") && userAccount.login(request, inputUsername, inputPassword)) {
                     response.sendRedirect("/timer");
-                    /*
-                    page = "timer.html";
-                    Redirector.redirect(request, response, pageVars);
-                    response.getWriter().println(PageGenerator.getPage(page, pageVars));
-                    */
                 }
                 else {
                     page = "login.html";
@@ -65,13 +50,8 @@ public class SignupServlet extends HttpServlet {
                 }
                 break;
             case ("/signup"):
-                if (userAccount.signup(request, inputUsername, inputPassword)) {
+                if (!inputUsername.equals("") && !inputPassword.equals("") && userAccount.signup(request, inputUsername, inputPassword)) {
                     response.sendRedirect("/timer");
-                    /*
-                    page = "timer.html";
-                    Redirector.redirect(request, response, pageVars);
-                    response.getWriter().println(PageGenerator.getPage(page, pageVars));
-                    */
                 }
                 else {
                     page = "signup.html";

@@ -28,39 +28,12 @@ public class Frontend extends HttpServlet{
         String page = "index.html";
         Map<String, Object> pageVars = new HashMap<>();
 
-        switch(request.getRequestURI()) {
-            case "/index":
-            {
-                page = "index.html";
-                Redirector.redirect(request, response, pageVars);
-                break;
-            }
-            case "/timer":
-            {
-                page = "timer.html";
-                Redirector.redirect(request, response, pageVars);
-                break;
-            }
-
-        }
-        response.getWriter().println(PageGenerator.getPage(page, pageVars));
+        Redirector.redirect(request, response, page, pageVars);
 
     }
 
     @Override
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String requestUsername = request.getParameter("username");
-        String requestPassword = request.getParameter("password");
-        boolean isValid = VALID_DATA.containsKey(requestUsername) && VALID_DATA.get(requestUsername).equals(requestPassword);
 
-        Map <String, Object> pageVars = new HashMap<>();
-        if (isValid) {
-            long userId = userIdGenerator.getAndIncrement();
-            request.getSession().setAttribute("userId", userId);
-            response.sendRedirect("/timer");
-        } else {
-            pageVars.put("errorMessage", "Invalid username and/or password. Try again.");
-            response.getWriter().println(PageGenerator.getPage("login.html", pageVars));
-        }
     }
 }

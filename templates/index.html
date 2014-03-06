@@ -5,12 +5,21 @@
     </head>
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <body>
-        <p style="color:blue"> See???</p>
-        <#if userId??>
-            <h3>Your kinda ID: ${userId}</h3>
-            <a href="/timer">Timer here</a>
-        </#if>
-        <a href="/login">Log in here</a>
-        <a href="/signup">Sign up here</a>
+        <div class="content">
+            <div class="headers">
+                <h3 class="info-header"> Index here </h3>
+                <#if userId??>
+                    <h3 class="info-header">Your kinda ID: ${userId}</h3>
+                </#if>
+            </div>
+            <div>
+            <div class="pages">
+                <#if userId??>
+                    <a href="/timer">Timer here</a>
+                </#if>
+                <a href="/login">Log in here</a>
+                <a href="/signup">Sign up here</a>
+            </div>
+        </div>
     </body>
 </html>

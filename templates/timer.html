@@ -7,11 +7,13 @@
     <link href="/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <#if userId??>
-    <h3>Your kinda ID: ${userId}</h3>
-  </#if>
-  <img id="doge" src="/img/doge.jpeg" />
-  <p id="refresh"></p>
+    <div class="content">
+        <#if userId??>
+            <h3 class="info-header">Your kinda ID: ${userId}</h3>
+        </#if>
+        <img id="doge" src="/img/doge.jpeg" />
+        <p id="refresh"></p>
+    </div>
 
 </body>
 </html>
