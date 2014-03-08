@@ -31,7 +31,6 @@ public class Redirector {
                 break;
             case ("/signup"):
             case ("/login"):
-
                 if (userId != null) {
                     pageVars.put("userId", userId);
                 }

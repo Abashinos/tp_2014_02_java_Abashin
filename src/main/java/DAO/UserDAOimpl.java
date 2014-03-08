@@ -6,7 +6,7 @@ import org.hibernate.criterion.Restrictions;
 
 import javax.jws.soap.SOAPBinding;
 
-public class UserDAOimpl implements UserDAO<UserDataSet> {
+public class UserDAOimpl implements UserDAO {
 
     private SessionFactory sessionFactory;
 
