@@ -16,7 +16,7 @@ import servlets.SignupServlet;
 public class GameServer {
 
     private int portNumber = 8080;
-    private DBConnector dbConnector = new DBConnector("H2");
+    private DBConnector dbConnector = new DBConnector("MySQL");
 
     public GameServer () {
 
