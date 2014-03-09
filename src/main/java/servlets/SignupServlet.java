@@ -1,7 +1,9 @@
 package servlets;
 
-import DAO.UserDAOimpl;
+import exceptions.DBException;
 import generator.PageGenerator;
+import org.apache.http.auth.InvalidCredentialsException;
+import services.UserAccount;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,8 +17,8 @@ public class SignupServlet extends HttpServlet {
 
     private UserAccount userAccount;
 
-    public SignupServlet (UserDAOimpl dao) {
-        this.userAccount = new UserAccount (dao);
+    public SignupServlet (UserAccount userAccount) {
+        this.userAccount = userAccount;
     }
 
     @Override
@@ -35,30 +37,36 @@ public class SignupServlet extends HttpServlet {
 
         String inputUsername = request.getParameter("username");
         String inputPassword = request.getParameter("password");
-        String page;
+        String page = "login.html";
         Map <String, Object> pageVars = new HashMap<>();
 
-        switch (request.getRequestURI()) {
-            case ("/login"):
-                if (!inputUsername.equals("") && !inputPassword.equals("") && userAccount.login(request, inputUsername, inputPassword)) {
-                    response.sendRedirect("/timer");
-                }
-                else {
-                    page = "login.html";
-                    pageVars.put("errorMessage", "Invalid username and/or password. Try again.");
-                    response.getWriter().println(PageGenerator.getPage(page, pageVars));
-                }
-                break;
-            case ("/signup"):
-                if (!inputUsername.equals("") && !inputPassword.equals("") && userAccount.signup(request, inputUsername, inputPassword)) {
-                    response.sendRedirect("/timer");
-                }
-                else {
-                    page = "signup.html";
-                    pageVars.put("errorMessage", "Error during registration.");
-                    response.getWriter().println(PageGenerator.getPage(page, pageVars));
-                }
-                break;
+        try {
+            switch (request.getRequestURI()) {
+                case ("/login"):
+                    if (!inputUsername.equals("") && !inputPassword.equals("") && userAccount.login(request, inputUsername, inputPassword)) {
+                        response.sendRedirect("/timer");
+                    }
+                    else {
+                        page = "login.html";
+                        pageVars.put("errorMessage", "Invalid username and/or password. Try again.");
+                        response.getWriter().println(PageGenerator.getPage(page, pageVars));
+                    }
+                    break;
+                case ("/signup"):
+                    if (!inputUsername.equals("") && !inputPassword.equals("") && userAccount.signup(request, inputUsername, inputPassword)) {
+                        response.sendRedirect("/timer");
+                    }
+                    else {
+                        page = "signup.html";
+                        pageVars.put("errorMessage", "Error during registration.");
+                        response.getWriter().println(PageGenerator.getPage(page, pageVars));
+                    }
+                    break;
+            }
+        }
+        catch (DBException e) {
+            pageVars.put("errorMessage", e.toString());
+            response.getWriter().println(PageGenerator.getPage(page, pageVars));
         }
     }
 }

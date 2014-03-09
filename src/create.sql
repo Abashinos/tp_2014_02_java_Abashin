@@ -1,5 +1,5 @@
-DROP SCHEMA IF EXISTS `java_db` ;
 CREATE SCHEMA IF NOT EXISTS `java_db` ;
+SET SCHEMA `java_db` ;
 
 -- -----------------------------------------------------
 -- Table `java_db`.`users`

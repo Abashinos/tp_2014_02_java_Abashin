@@ -1,13 +1,14 @@
 package DAO;
 
 import dataSets.UserDataSet;
+import exceptions.DBException;
+import exceptions.InvalidDataException;
 
-import java.sql.SQLException;
 
 public interface UserDAO {
 
-    UserDataSet getById (long id) throws SQLException;
-    UserDataSet getByName (String name) throws SQLException;
-    boolean add (UserDataSet dataSet) throws SQLException;
-    // boolean delete (long id) throws SQLException;
+    UserDataSet getById (long id);
+    UserDataSet getByName (String name) throws InvalidDataException;
+    boolean add (UserDataSet dataSet) throws DBException;
+    boolean delete (String name) throws InvalidDataException;
 }

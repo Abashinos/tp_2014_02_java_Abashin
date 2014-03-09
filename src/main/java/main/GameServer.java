@@ -12,11 +12,12 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.rewrite.handler.RewriteHandler;
 import servlets.SignupServlet;
+import services.UserAccount;
 
 public class GameServer {
 
     private int portNumber = 8080;
-    private DBConnector dbConnector = new DBConnector("MySQL");
+    private DBConnector dbConnector = new DBConnector("H2");
 
     public GameServer () {
 
@@ -38,8 +39,8 @@ public class GameServer {
     private HandlerList getServerHandlers() {
         Frontend frontend = new Frontend();
         UserDAOimpl userDAO = new UserDAOimpl(dbConnector.getSessionFactory());
-        SignupServlet signupServlet = new SignupServlet(userDAO);
-
+        UserAccount userAccount = new UserAccount(userDAO);
+        SignupServlet signupServlet = new SignupServlet(userAccount);
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(signupServlet), "/signup");

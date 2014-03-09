@@ -1,10 +1,12 @@
 package DAO;
 
 import dataSets.UserDataSet;
+import exceptions.DBException;
+import exceptions.InvalidDataException;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.exception.ConstraintViolationException;
 
-import javax.jws.soap.SOAPBinding;
 
 public class UserDAOimpl implements UserDAO {
 
@@ -14,7 +16,7 @@ public class UserDAOimpl implements UserDAO {
         this.sessionFactory = sessionFactory;
     }
 
-    public boolean add (UserDataSet dataSet) {
+    public boolean add (UserDataSet dataSet) throws DBException {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
@@ -22,7 +24,28 @@ public class UserDAOimpl implements UserDAO {
             session.save(dataSet);
             transaction.commit();
         }
+        catch (ConstraintViolationException e) {
+            throw new DBException("User already exists.");
+        }
         catch (HibernateException e){
+            session.close();
+            return false;
+        }
+
+        session.close();
+        return true;
+    }
+
+    public boolean delete (String username) throws InvalidDataException {
+        Session session = sessionFactory.openSession();
+
+        UserDataSet user = getByName(username);
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.delete(user);
+            transaction.commit();
+        }
+        catch (HibernateException e) {
             session.close();
             return false;
         }
@@ -39,11 +62,14 @@ public class UserDAOimpl implements UserDAO {
         return user;
     }
 
-    public UserDataSet getByName (String name) {
+    public UserDataSet getByName (String name) throws InvalidDataException {
         Session session = sessionFactory.openSession();
         Criteria criteria = session.createCriteria(UserDataSet.class);
         UserDataSet user = (UserDataSet) criteria.add(Restrictions.eq("username", name)).uniqueResult();
         session.close();
+
+        if (user == null)
+            throw new InvalidDataException();
 
         return user;
     }

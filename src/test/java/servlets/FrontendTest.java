@@ -1,6 +1,7 @@
 package servlets;
 
 import junit.framework.Assert;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,8 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class FrontendTest {
     private static final HttpServletRequest request = mock(HttpServletRequest.class);
@@ -28,16 +28,76 @@ public class FrontendTest {
 
         when(request.getSession()).thenReturn(session);
         when(response.getWriter()).thenReturn(printWriter);
-        when(session.getAttribute("userId")).thenReturn(0L);
     }
+    @After
+    public void tearDown() throws Exception {
 
+    }
 
     @Test
     public void getRootPageLoggedInTest() throws Exception {
+
+        Assert.assertTrue(request.getRequestURI() == null || request.getRequestURI().equals("/index"));
         when(request.getRequestURI()).thenReturn("/index");
         when(request.getServletPath()).thenReturn("");
+        when(session.getAttribute("userId")).thenReturn(0L);
         frontend.doGet(request, response);
 
         Assert.assertTrue(stringWriter.toString().contains("<meta name=\"page\" content=\"index\">"));
     }
+
+    @Test
+    public void getRootPageNotLoggedInTest() throws Exception {
+
+        Assert.assertTrue(request.getRequestURI() == null || request.getRequestURI().equals("/index"));
+        when(request.getRequestURI()).thenReturn("/index");
+        when(request.getServletPath()).thenReturn("");
+        when(session.getAttribute("userId")).thenReturn(null);
+        frontend.doGet(request, response);
+
+        verify(response, atLeastOnce()).sendRedirect("/login");
+    }
+
+    @Test
+    public void getIndexPageLoggedInTest() throws Exception {
+        when(request.getRequestURI()).thenReturn("/index");
+        when(request.getServletPath()).thenReturn("");
+        when(session.getAttribute("userId")).thenReturn(0L);
+        frontend.doGet(request, response);
+
+        Assert.assertTrue(stringWriter.toString().contains("<meta name=\"page\" content=\"index\">"));
+    }
+
+    @Test
+    public void getIndexPageNotLoggedInTest() throws Exception {
+        when(request.getRequestURI()).thenReturn("/index");
+        when(request.getServletPath()).thenReturn("");
+        when(session.getAttribute("userId")).thenReturn(null);
+        frontend.doGet(request, response);
+
+        verify(response, atLeastOnce()).sendRedirect("/login");
+    }
+
+
+
+    @Test
+    public void getTimerPageLoggedInTest() throws Exception {
+        when(request.getRequestURI()).thenReturn("/timer");
+        when(request.getServletPath()).thenReturn("");
+        when(session.getAttribute("userId")).thenReturn(0L);
+        frontend.doGet(request, response);
+
+        Assert.assertTrue(stringWriter.toString().contains("<meta name=\"page\" content=\"timer\">"));
+    }
+
+    @Test
+    public void getTimerPageNotLoggedInTest() throws Exception {
+        when(request.getRequestURI()).thenReturn("/timer");
+        when(request.getServletPath()).thenReturn("");
+        when(session.getAttribute("userId")).thenReturn(null);
+        frontend.doGet(request, response);
+
+        verify(response, atLeastOnce()).sendRedirect("/login");
+    }
+
 }
