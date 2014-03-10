@@ -4,7 +4,6 @@ SET SCHEMA `java_db` ;
 -- -----------------------------------------------------
 -- Table `java_db`.`users`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `java_db`.`users` ;
 
 CREATE TABLE IF NOT EXISTS `java_db`.`users` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,

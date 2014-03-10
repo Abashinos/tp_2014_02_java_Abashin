@@ -15,10 +15,11 @@ import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+import static supplies.RandomSupply.randomStringGenerator;
 
 public class SignupServletTest {
+    private static UserAccount userAccount;
     private static final HttpServletRequest request = mock(HttpServletRequest.class);
     private static final HttpServletResponse response = mock(HttpServletResponse.class);
     private static final HttpSession session = mock(HttpSession.class);
@@ -30,7 +31,7 @@ public class SignupServletTest {
     public void setUp() throws Exception {
         DBConnector dbConnector = new DBConnector("H2");
         UserDAOimpl userDAO = new UserDAOimpl(dbConnector.getSessionFactory());
-        UserAccount userAccount = new UserAccount(userDAO);
+        userAccount = new UserAccount(userDAO);
         signupServlet = new SignupServlet(userAccount);
 
         when(request.getSession()).thenReturn(session);
@@ -78,5 +79,68 @@ public class SignupServletTest {
         signupServlet.doGet(request, response);
 
         Assert.assertTrue(stringWriter.toString().contains("<meta name=\"page\" content=\"signup\">"));
+    }
+
+    @Test
+    public void doGetTest() throws Exception {
+        when (request.getRequestURI()).thenReturn("/login");
+        when(request.getServletPath()).thenReturn("/login");
+        signupServlet.doGet(request, response);
+        Assert.assertTrue(stringWriter.toString().contains("<meta name=\"page\" content=\"login\">"));
+    }
+
+    @Test
+    public void doPostSignupGood() throws Exception {
+        String username = randomStringGenerator(10);
+        String password = randomStringGenerator(10);
+        when(request.getParameter("username")).thenReturn(username);
+        when(request.getParameter("password")).thenReturn(password);
+        when(request.getRequestURI()).thenReturn("/signup");
+        signupServlet.doPost(request, response);
+
+        verify(response, atLeastOnce()).sendRedirect("/timer");
+        userAccount.delete(username);
+    }
+    @Test
+    public void doPostSignupBad() throws Exception {
+        String username = randomStringGenerator(10);
+        String password = randomStringGenerator(10);
+        userAccount.signup(request, username, password);
+
+        when(request.getParameter("username")).thenReturn(username);
+        when(request.getParameter("password")).thenReturn(password);
+        when(request.getRequestURI()).thenReturn("/signup");
+        signupServlet.doPost(request, response);
+
+        Assert.assertTrue(stringWriter.toString().contains("id=\"errormessage\""));
+        userAccount.delete(username);
+    }
+
+    @Test
+    public void doPostLoginGood() throws Exception {
+        String username = randomStringGenerator(10);
+        String password = randomStringGenerator(10);
+        userAccount.signup(request, username, password);
+
+        when(request.getParameter("username")).thenReturn(username);
+        when(request.getParameter("password")).thenReturn(password);
+        when(request.getRequestURI()).thenReturn("/login");
+        signupServlet.doPost(request, response);
+
+        verify(response, atLeastOnce()).sendRedirect("/timer");
+        userAccount.delete(username);
+    }
+
+    @Test
+    public void doPostLoginBad() throws Exception {
+        String username = randomStringGenerator(10);
+        String password = randomStringGenerator(10);
+
+        when(request.getParameter("username")).thenReturn(username);
+        when(request.getParameter("password")).thenReturn(password);
+        when(request.getRequestURI()).thenReturn("/login");
+        signupServlet.doPost(request, response);
+
+        Assert.assertTrue(stringWriter.toString().contains("id=\"errormessage\""));
     }
 }

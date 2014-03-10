@@ -18,7 +18,10 @@ public class Redirector {
         HttpSession session = request.getSession();
         Long userId = (Long) session.getAttribute("userId");
 
-        page = request.getRequestURI().substring(1) + ".html";
+        if (request.getRequestURI() != null)
+            page = request.getRequestURI().substring(1) + ".html";
+        else
+            page = "index.html";
 
         switch (request.getServletPath()) {
 

@@ -35,30 +35,6 @@ public class FrontendTest {
     }
 
     @Test
-    public void getRootPageLoggedInTest() throws Exception {
-
-        Assert.assertTrue(request.getRequestURI() == null || request.getRequestURI().equals("/index"));
-        when(request.getRequestURI()).thenReturn("/index");
-        when(request.getServletPath()).thenReturn("");
-        when(session.getAttribute("userId")).thenReturn(0L);
-        frontend.doGet(request, response);
-
-        Assert.assertTrue(stringWriter.toString().contains("<meta name=\"page\" content=\"index\">"));
-    }
-
-    @Test
-    public void getRootPageNotLoggedInTest() throws Exception {
-
-        Assert.assertTrue(request.getRequestURI() == null || request.getRequestURI().equals("/index"));
-        when(request.getRequestURI()).thenReturn("/index");
-        when(request.getServletPath()).thenReturn("");
-        when(session.getAttribute("userId")).thenReturn(null);
-        frontend.doGet(request, response);
-
-        verify(response, atLeastOnce()).sendRedirect("/login");
-    }
-
-    @Test
     public void getIndexPageLoggedInTest() throws Exception {
         when(request.getRequestURI()).thenReturn("/index");
         when(request.getServletPath()).thenReturn("");

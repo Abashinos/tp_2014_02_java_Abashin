@@ -17,13 +17,14 @@ import services.UserAccount;
 public class GameServer {
 
     private int portNumber = 8080;
-    private DBConnector dbConnector = new DBConnector("H2");
+    private DBConnector dbConnector;
 
     public GameServer () {
-
+        this.dbConnector = new DBConnector("H2");
     }
-    public GameServer(int port) {
+    public GameServer(int port, String db) {
         this.portNumber = port;
+        this.dbConnector = new DBConnector(db);
     }
 
 
