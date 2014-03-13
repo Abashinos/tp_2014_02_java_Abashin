@@ -52,8 +52,6 @@ public class GameServer {
         resourceHandler.setResourceBase("static");
 
         RewriteHandler rewriteHandler = new RewriteHandler();
-        rewriteHandler.setRewriteRequestURI(true);
-        rewriteHandler.setRewritePathInfo(true);
         rewriteHandler.setOriginalPathAttribute("requestedPath");
 
         RedirectRegexRule regRule = new RedirectRegexRule();
