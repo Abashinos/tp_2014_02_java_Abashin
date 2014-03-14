@@ -1,7 +1,7 @@
 package servlets;
 
 import DAO.UserDAOimpl;
-import connectors.DBConnector;
+import connectors.DBConnectorH2;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
@@ -29,7 +29,7 @@ public class SignupServletTest {
 
     @Before
     public void setUp() throws Exception {
-        DBConnector dbConnector = new DBConnector("H2");
+        DBConnectorH2 dbConnector = new DBConnectorH2();
         UserDAOimpl userDAO = new UserDAOimpl(dbConnector.getSessionFactory());
         userAccount = new UserAccount(userDAO);
         signupServlet = new SignupServlet(userAccount);

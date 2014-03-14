@@ -1,7 +1,7 @@
 package services;
 
 import DAO.UserDAOimpl;
-import connectors.DBConnector;
+import connectors.DBConnectorH2;
 import exceptions.DBException;
 import exceptions.InvalidDataException;
 import junit.framework.Assert;
@@ -19,7 +19,7 @@ import static supplies.RandomSupply.randomStringGenerator;
 
 public class UserAccountTest {
 
-    private static DBConnector dbConnector = new DBConnector("H2");
+    private static DBConnectorH2 dbConnector = new DBConnectorH2();
     private static UserDAOimpl userDAO = new UserDAOimpl(dbConnector.getSessionFactory());
     private static UserAccount userAccount = new UserAccount(userDAO);
     private static final HttpServletRequest request = mock(HttpServletRequest.class);

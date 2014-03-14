@@ -14,10 +14,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import services.UserAccountTest;
 
 import static supplies.RandomSupply.randomStringGenerator;
+import static main.GameServer.dbType;
 
 public class LoginTest {
     private final int PORT_NUMBER = 8880;
-    private final GameServer gameServer = new GameServer(PORT_NUMBER, "H2");
+    private final GameServer gameServer = new GameServer(PORT_NUMBER, dbType.H2);
     private Thread thread;
 
     @Test

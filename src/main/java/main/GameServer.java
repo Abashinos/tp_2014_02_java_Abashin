@@ -2,6 +2,8 @@ package main;
 
 import DAO.UserDAOimpl;
 import connectors.DBConnector;
+import connectors.DBConnectorH2;
+import connectors.DBConnectorMySQL;
 import servlets.Frontend;
 import org.eclipse.jetty.rewrite.handler.RedirectRegexRule;
 import org.eclipse.jetty.server.Handler;
@@ -16,15 +18,27 @@ import services.UserAccount;
 
 public class GameServer {
 
+    public enum dbType {MySQL, H2}
+
     private int portNumber = 8080;
     private DBConnector dbConnector;
 
     public GameServer () {
-        this.dbConnector = new DBConnector("H2");
+        this.dbConnector = new DBConnectorMySQL();
     }
-    public GameServer(int port, String db) {
+    public GameServer (int port, dbType db) {
         this.portNumber = port;
-        this.dbConnector = new DBConnector(db);
+        switch (db) {
+            case H2:
+                this.dbConnector = new DBConnectorH2();
+                break;
+            case MySQL:
+            default:
+                this.dbConnector = new DBConnectorMySQL();
+        }
+    }
+    public GameServer (dbType db) {
+        this(8080, db);
     }
 
 
@@ -68,7 +82,7 @@ public class GameServer {
 
     public static void main (String[] args) throws Exception {
 
-        GameServer server = new GameServer();
+        GameServer server = new GameServer(dbType.MySQL);
         server.run();
     }
 }
