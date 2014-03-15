@@ -70,10 +70,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GameServer.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GameServer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/main/GameServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="55" selection-start="2761" selection-end="2761" vertical-scroll-proportion="0.69617224" vertical-offset="1137" max-vertical-offset="1598">
+            <state line="84" column="55" selection-start="2761" selection-end="2761" vertical-scroll-proportion="0.0" vertical-offset="423" max-vertical-offset="1598">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,37 +81,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserAccount.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/services/UserAccount.java">
+      <file leaf-file-name="SignupTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/functional/SignupTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="19" selection-start="1125" selection-end="1125" vertical-scroll-proportion="0.0" vertical-offset="143" max-vertical-offset="782">
+            <state line="61" column="40" selection-start="1962" selection-end="1962" vertical-scroll-proportion="0.0" vertical-offset="388" max-vertical-offset="1190">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Frontend.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Frontend.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Redirector.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Redirector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="35" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="LoginTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/functional/LoginTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="79" selection-start="738" selection-end="738" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1394">
+            <state line="46" column="69" selection-start="1433" selection-end="1433" vertical-scroll-proportion="0.21052632" vertical-offset="643" max-vertical-offset="1394">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,45 +104,61 @@
       <file leaf-file-name="UserAccountTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/services/UserAccountTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="47" selection-start="1165" selection-end="1165" vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1666">
+            <state line="86" column="0" selection-start="2955" selection-end="2955" vertical-scroll-proportion="0.0" vertical-offset="1068" max-vertical-offset="1666">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignupServletTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/servlets/SignupServletTest.java">
+      <file leaf-file-name="UserAccount.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/services/UserAccount.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="54" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="2312">
+            <state line="21" column="69" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="731">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignupTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/functional/SignupTest.java">
+      <file leaf-file-name="Frontend.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Frontend.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="81" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0" vertical-offset="789" max-vertical-offset="1428">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBConnectorH2.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/connectors/DBConnectorH2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="41" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+            <state line="24" column="45" selection-start="852" selection-end="852" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="510">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BadLoginException.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/exceptions/BadLoginException.java">
+      <file leaf-file-name="SignupServlet.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlets/SignupServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="19" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+            <state line="66" column="12" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1122">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBException.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/exceptions/DBException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="34" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvalidDataException.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/exceptions/InvalidDataException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="40" selection-start="159" selection-end="159" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDAOimpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DAO/UserDAOimpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="41" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="1309">
               <folding />
             </state>
           </provider>
@@ -203,14 +201,9 @@
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/Frontend.java" />
         <option value="$PROJECT_DIR$/src/main/java/supplies/RandomSupply.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dataSets/UserDataSet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exceptions/InvalidDataException.java" />
         <option value="$PROJECT_DIR$/src/main/java/exceptions/BadLoginException.java" />
         <option value="$PROJECT_DIR$/src/main/java/exceptions/DBException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/services/UserAccount.java" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/SignupServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/DAO/UserDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/DAO/UserDAOimpl.java" />
         <option value="$PROJECT_DIR$/src/create.sql" />
@@ -218,17 +211,22 @@
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/templates/timer.html" />
         <option value="$PROJECT_DIR$/templates/signup.html" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/Redirector.java" />
         <option value="$PROJECT_DIR$/src/main/java/connectors/DBConnectorInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/connectors/DBConnectorAbstract.java" />
         <option value="$PROJECT_DIR$/src/main/java/connectors/DBConnector.java" />
         <option value="$PROJECT_DIR$/src/main/java/connectors/DBConnectorMySQL.java" />
         <option value="$PROJECT_DIR$/src/main/java/connectors/DBConnectorH2.java" />
         <option value="$PROJECT_DIR$/src/test/java/functional/SignupTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/functional/LoginTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/services/UserAccountTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/servlets/SignupServletTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/main/GameServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/Frontend.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/Redirector.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dataSets/UserDataSet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exceptions/InvalidDataException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/SignupServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/UserAccount.java" />
+        <option value="$PROJECT_DIR$/src/test/java/functional/LoginTest.java" />
       </list>
     </option>
   </component>
@@ -1174,12 +1172,12 @@
       <workItem from="1394735015994" duration="1523000" />
       <workItem from="1394801558760" duration="2050000" />
       <workItem from="1394809602751" duration="1213000" />
-      <workItem from="1394826890493" duration="2107000" />
+      <workItem from="1394826890493" duration="8807000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113983000" />
+    <option name="totallyTimeSpent" value="120683000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1203,7 +1201,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1552" height="842" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32944608" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1225,7 +1223,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2844712" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2844712" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32215744" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1341,13 +1339,6 @@
         <state line="101" column="16" selection-start="4780" selection-end="4780" vertical-scroll-proportion="-4.36" vertical-offset="1591" max-vertical-offset="2771" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/supplies/RandomSupply.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="75" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.10.jar!/org/junit/internal/runners/statements/ExpectException.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="597" selection-end="597" vertical-scroll-proportion="0.5368421" vertical-offset="0" max-vertical-offset="380" />
@@ -1381,15 +1372,6 @@
     <entry file="file://$PROJECT_DIR$/src/create.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="56" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/servlets/FrontendTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="5" selection-start="1097" selection-end="1097" vertical-scroll-proportion="0.0" vertical-offset="201" max-vertical-offset="1224">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/mockito/mockito-all/1.8.4/mockito-all-1.8.4.jar!/org/mockito/Mockito.class">
@@ -1452,20 +1434,6 @@
         <state line="27" column="65" selection-start="881" selection-end="881" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="663" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exceptions/DBException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exceptions/InvalidDataException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="34" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/generator/PageGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="0" selection-start="560" selection-end="560" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
@@ -1473,16 +1441,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/SignupServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/supplies/RandomSupply.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="21" selection-start="2537" selection-end="2537" vertical-scroll-proportion="0.0" vertical-offset="456" max-vertical-offset="1139">
+        <state line="14" column="75" selection-start="487" selection-end="487" vertical-scroll-proportion="0.5353075" vertical-offset="3" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/servlets/SignupServletTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="142" column="0" selection-start="5647" selection-end="5647" vertical-scroll-proportion="0.0" vertical-offset="1822" max-vertical-offset="2312">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/connectors/DBConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="562" selection-end="562" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+        <state line="28" column="0" selection-start="914" selection-end="914" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="544">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1491,7 +1466,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/connectors/DBConnectorMySQL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="799" selection-end="799" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+        <state line="19" column="0" selection-start="791" selection-end="791" vertical-scroll-proportion="0.0" vertical-offset="41" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/connectors/DBConnectorH2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="66" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/servlets/FrontendTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="0" selection-start="2272" selection-end="2272" vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="1224">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exceptions/BadLoginException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="215" selection-end="215" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
           <folding />
         </state>
       </provider>
@@ -1503,67 +1499,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DAO/UserDAOimpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Redirector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="0" selection-start="1925" selection-end="1925" vertical-scroll-proportion="0.0" vertical-offset="957" max-vertical-offset="1394">
+        <state line="36" column="22" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="731">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dataSets/UserDataSet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="597" selection-end="597" vertical-scroll-proportion="0.0" vertical-offset="263" max-vertical-offset="697">
+        <state line="13" column="30" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exceptions/BadLoginException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/exceptions/DBException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="19" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+        <state line="3" column="34" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/UserAccount.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/DAO/UserDAOimpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="19" selection-start="1125" selection-end="1125" vertical-scroll-proportion="0.0" vertical-offset="245" max-vertical-offset="782">
+        <state line="18" column="41" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1309">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/SignupServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="12" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1122">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Frontend.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.0" vertical-offset="92" max-vertical-offset="527">
+        <state line="24" column="45" selection-start="852" selection-end="852" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="510">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Redirector.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/exceptions/InvalidDataException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="35" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+        <state line="4" column="40" selection-start="159" selection-end="159" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/connectors/DBConnectorH2.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/GameServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="41" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/SignupTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="81" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0" vertical-offset="789" max-vertical-offset="1428">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/functional/LoginTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="79" selection-start="738" selection-end="738" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1394">
+        <state line="84" column="55" selection-start="2761" selection-end="2761" vertical-scroll-proportion="0.0" vertical-offset="423" max-vertical-offset="1598">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1572,21 +1559,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/services/UserAccountTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="47" selection-start="1165" selection-end="1165" vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1666">
+        <state line="86" column="0" selection-start="2955" selection-end="2955" vertical-scroll-proportion="0.0" vertical-offset="1068" max-vertical-offset="1666">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/servlets/SignupServletTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/UserAccount.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="54" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="2312">
+        <state line="21" column="69" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="731">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/main/GameServer.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/SignupTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="55" selection-start="2761" selection-end="2761" vertical-scroll-proportion="0.69617224" vertical-offset="1137" max-vertical-offset="1598">
+        <state line="61" column="40" selection-start="1962" selection-end="1962" vertical-scroll-proportion="0.0" vertical-offset="388" max-vertical-offset="1190">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/functional/LoginTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="69" selection-start="1433" selection-end="1433" vertical-scroll-proportion="0.21052632" vertical-offset="643" max-vertical-offset="1394">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

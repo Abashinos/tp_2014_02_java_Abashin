@@ -20,10 +20,9 @@ public class Frontend extends HttpServlet{
     public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType(SUCCESS_CONTENT_TYPE);
         response.setStatus(SUCCESS_STATUS);
-        String page = "index.html";
         Map<String, Object> pageVars = new HashMap<>();
 
-        Redirector.redirect(request, response, page, pageVars);
+        Redirector.redirect(request, response, pageVars);
 
     }
 

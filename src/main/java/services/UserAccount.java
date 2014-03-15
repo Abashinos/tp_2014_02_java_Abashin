@@ -19,10 +19,7 @@ public class UserAccount {
 
     private boolean userExists(String username, String password) throws DBException {
         UserDataSet user = DAO.getByName(username);
-        if (user == null || !user.getPassword().equals(password))
-            throw new InvalidDataException();
-        else
-            return true;
+        return (user != null && user.getPassword().equals(password));
     }
 
     public boolean login (HttpServletRequest request, String inputUsername, String inputPassword) throws DBException {

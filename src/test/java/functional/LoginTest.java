@@ -44,7 +44,7 @@ public class LoginTest {
     public void loginTest() throws Exception {
         String username = randomStringGenerator(10);
         String password = randomStringGenerator(10);
-        String address = "http://localhost:" + PORT_NUMBER;
+        String address = "http://localhost:" + PORT_NUMBER + "/login";
 
         UserAccountTest.registerUser(username, password);
         Assert.assertTrue(executeLoginTest(address, username, password));

@@ -26,10 +26,9 @@ public class SignupServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
 
-        String page = "login.html";
         Map<String, Object> pageVars = new HashMap<>();
 
-        Redirector.redirect(request, response, page, pageVars);
+        Redirector.redirect(request, response, pageVars);
     }
 
     @Override
@@ -65,7 +64,7 @@ public class SignupServlet extends HttpServlet {
             }
         }
         catch (DBException e) {
-            pageVars.put("errorMessage", e.toString());
+            pageVars.put("errorMessage", e.getMessage());
             response.getWriter().println(PageGenerator.getPage(page, pageVars));
         }
     }

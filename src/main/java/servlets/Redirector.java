@@ -12,13 +12,13 @@ import java.util.Map;
 
 public class Redirector {
 
-    public static void redirect (HttpServletRequest request, HttpServletResponse response, String page, Map<String, Object> pageVars)
+    public static void redirect (HttpServletRequest request, HttpServletResponse response, Map<String, Object> pageVars)
         throws ServletException, IOException {
 
         HttpSession session = request.getSession();
         Long userId = (Long) session.getAttribute("userId");
 
-        page = request.getRequestURI().substring(1) + ".html";
+        String page = request.getRequestURI().substring(1) + ".html";
 
         switch (request.getServletPath()) {
 
