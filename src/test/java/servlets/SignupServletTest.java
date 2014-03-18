@@ -6,7 +6,7 @@ import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import services.UserAccount;
+import services.AccountService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +19,7 @@ import static org.mockito.Mockito.*;
 import static supplies.RandomSupply.randomStringGenerator;
 
 public class SignupServletTest {
-    private static UserAccount userAccount;
+    private static AccountService accountService;
     private static final HttpServletRequest request = mock(HttpServletRequest.class);
     private static final HttpServletResponse response = mock(HttpServletResponse.class);
     private static final HttpSession session = mock(HttpSession.class);
@@ -31,8 +31,8 @@ public class SignupServletTest {
     public void setUp() throws Exception {
         DBConnectorH2 dbConnector = new DBConnectorH2();
         UserDAOimpl userDAO = new UserDAOimpl(dbConnector.getSessionFactory());
-        userAccount = new UserAccount(userDAO);
-        signupServlet = new SignupServlet(userAccount);
+        accountService = new AccountService(userDAO);
+        signupServlet = new SignupServlet(accountService);
 
         when(request.getSession()).thenReturn(session);
         when(response.getWriter()).thenReturn(printWriter);
@@ -99,13 +99,13 @@ public class SignupServletTest {
         signupServlet.doPost(request, response);
 
         verify(response, atLeastOnce()).sendRedirect("/timer");
-        userAccount.delete(username);
+        accountService.delete(username);
     }
     @Test
     public void doPostSignupBad() throws Exception {
         String username = randomStringGenerator(10);
         String password = randomStringGenerator(10);
-        userAccount.signup(request, username, password);
+        accountService.signup(request, username, password);
 
         when(request.getParameter("username")).thenReturn(username);
         when(request.getParameter("password")).thenReturn(password);
@@ -113,14 +113,14 @@ public class SignupServletTest {
         signupServlet.doPost(request, response);
 
         Assert.assertTrue(stringWriter.toString().contains("id=\"errormessage\""));
-        userAccount.delete(username);
+        accountService.delete(username);
     }
 
     @Test
     public void doPostLoginGood() throws Exception {
         String username = randomStringGenerator(10);
         String password = randomStringGenerator(10);
-        userAccount.signup(request, username, password);
+        accountService.signup(request, username, password);
 
         when(request.getParameter("username")).thenReturn(username);
         when(request.getParameter("password")).thenReturn(password);
@@ -128,7 +128,7 @@ public class SignupServletTest {
         signupServlet.doPost(request, response);
 
         verify(response, atLeastOnce()).sendRedirect("/timer");
-        userAccount.delete(username);
+        accountService.delete(username);
     }
 
     @Test

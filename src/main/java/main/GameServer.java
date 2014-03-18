@@ -2,8 +2,8 @@ package main;
 
 import DAO.UserDAOimpl;
 import connectors.DBConnector;
-import connectors.DBConnectorH2;
 import connectors.DBConnectorMySQL;
+import services.AccountService;
 import servlets.Frontend;
 import org.eclipse.jetty.rewrite.handler.RedirectRegexRule;
 import org.eclipse.jetty.server.Handler;
@@ -14,33 +14,23 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.rewrite.handler.RewriteHandler;
 import servlets.SignupServlet;
-import services.UserAccount;
 
 public class GameServer {
-
-    public enum dbType {MySQL, H2}
 
     private int portNumber = 8080;
     private DBConnector dbConnector;
 
     public GameServer () {
+        this(8080);
+    }
+    public GameServer (int port) {
+        this.portNumber = port;
         this.dbConnector = new DBConnectorMySQL();
     }
-    public GameServer (int port, dbType db) {
-        this.portNumber = port;
-        switch (db) {
-            case H2:
-                this.dbConnector = new DBConnectorH2();
-                break;
-            case MySQL:
-            default:
-                this.dbConnector = new DBConnectorMySQL();
-        }
-    }
-    public GameServer (dbType db) {
-        this(8080, db);
-    }
 
+    public void setDBConnector (DBConnector connector) {
+        this.dbConnector = connector;
+    }
 
     public void run() throws Exception {
         Server server = new Server (portNumber);
@@ -54,8 +44,8 @@ public class GameServer {
     private HandlerList getServerHandlers() {
         Frontend frontend = new Frontend();
         UserDAOimpl userDAO = new UserDAOimpl(dbConnector.getSessionFactory());
-        UserAccount userAccount = new UserAccount(userDAO);
-        SignupServlet signupServlet = new SignupServlet(userAccount);
+        AccountService accountService = new AccountService(userDAO);
+        SignupServlet signupServlet = new SignupServlet(accountService);
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(signupServlet), "/signup");
@@ -82,7 +72,7 @@ public class GameServer {
 
     public static void main (String[] args) throws Exception {
 
-        GameServer server = new GameServer(dbType.MySQL);
+        GameServer server = new GameServer();
         server.run();
     }
 }

@@ -8,23 +8,18 @@ import exceptions.InvalidDataException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class UserAccount {
+public class AccountService {
 
-    private AtomicLong userIdGenerator = new AtomicLong();
     private UserDAOimpl DAO;
 
-    public UserAccount (UserDAOimpl dao) {
+    public AccountService(UserDAOimpl dao) {
         this.DAO = dao;
     }
 
-    private boolean userExists(String username, String password) throws DBException {
-        UserDataSet user = DAO.getByName(username);
-        return (user != null && user.getPassword().equals(password));
-    }
-
     public boolean login (HttpServletRequest request, String inputUsername, String inputPassword) throws DBException {
-        if (userExists(inputUsername, inputPassword)) {
-            long userId = userIdGenerator.getAndIncrement();
+        UserDataSet user = DAO.getByName(inputUsername);
+        if (user != null && user.getPassword().equals(inputPassword)) {
+            long userId = user.getId();
             request.getSession().setAttribute("userId", userId);
             return true;
         }

@@ -1,6 +1,7 @@
 package functional;
 
 import com.sun.istack.internal.NotNull;
+import connectors.DBConnectorH2;
 import junit.framework.Assert;
 import main.GameServer;
 import org.junit.Test;
@@ -11,18 +12,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import services.UserAccountTest;
+import services.AccountServiceTest;
 
 import static supplies.RandomSupply.randomStringGenerator;
-import static main.GameServer.dbType;
 
 public class LoginTest {
     private final int PORT_NUMBER = 8880;
-    private final GameServer gameServer = new GameServer(PORT_NUMBER, dbType.H2);
+    private final GameServer gameServer = new GameServer(PORT_NUMBER);
     private Thread thread;
 
     @Test
     public void setUp() throws Exception {
+        gameServer.setDBConnector(new DBConnectorH2());
         thread = new Thread( new Runnable() {
             @Override
             public void run() {
@@ -46,9 +47,9 @@ public class LoginTest {
         String password = randomStringGenerator(10);
         String address = "http://localhost:" + PORT_NUMBER + "/login";
 
-        UserAccountTest.registerUser(username, password);
+        AccountServiceTest.registerUser(username, password);
         Assert.assertTrue(executeLoginTest(address, username, password));
-        UserAccountTest.deleteUser(username);
+        AccountServiceTest.deleteUser(username);
     }
 
     public boolean executeLoginTest (@NotNull String url, @NotNull String username, @NotNull String password) {

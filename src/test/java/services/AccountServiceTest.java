@@ -17,11 +17,11 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static supplies.RandomSupply.randomStringGenerator;
 
-public class UserAccountTest {
+public class AccountServiceTest {
 
     private static DBConnectorH2 dbConnector = new DBConnectorH2();
     private static UserDAOimpl userDAO = new UserDAOimpl(dbConnector.getSessionFactory());
-    private static UserAccount userAccount = new UserAccount(userDAO);
+    private static AccountService accountService = new AccountService(userDAO);
     private static final HttpServletRequest request = mock(HttpServletRequest.class);
     private static final HttpServletResponse response = mock(HttpServletResponse.class);
     private static final HttpSession session = mock(HttpSession.class);
@@ -44,20 +44,20 @@ public class UserAccountTest {
         //HttpSession tempSession = mock(HttpSession.class);
         when(request.getSession()).thenReturn(session);
 
-        return userAccount.signup(request, username, password);
+        return accountService.signup(request, username, password);
     }
     public static boolean registerUser() throws Exception {
         when(request.getSession()).thenReturn(session);
         TEST_USERNAME = randomStringGenerator(10);
         TEST_PASSWORD = randomStringGenerator(10);
-        return userAccount.signup(request, TEST_USERNAME, TEST_PASSWORD);
+        return accountService.signup(request, TEST_USERNAME, TEST_PASSWORD);
     }
 
     public static boolean deleteUser(String username) throws InvalidDataException {
-        return userAccount.delete(username);
+        return accountService.delete(username);
     }
     public static boolean deleteUser() throws InvalidDataException {
-        return userAccount.delete(TEST_USERNAME);
+        return accountService.delete(TEST_USERNAME);
     }
 
     public static void caughtException() {
@@ -68,14 +68,14 @@ public class UserAccountTest {
     public void loginTestGood() throws Exception {
 
         registerUser();
-        Assert.assertTrue(userAccount.login(request, TEST_USERNAME, TEST_PASSWORD));
+        Assert.assertTrue(accountService.login(request, TEST_USERNAME, TEST_PASSWORD));
         deleteUser();
     }
     @Test (expected = InvalidDataException.class)
     public void loginTestBad() throws Exception {
         String badUsername = randomStringGenerator(10);
         String badPassword = randomStringGenerator(10);
-        userAccount.login(request, badUsername, badPassword);
+        accountService.login(request, badUsername, badPassword);
     }
 
     @Test
@@ -84,8 +84,8 @@ public class UserAccountTest {
 
         TEST_USERNAME = randomStringGenerator(10);
         TEST_PASSWORD = randomStringGenerator(10);
-        Assert.assertTrue(userAccount.signup(request, TEST_USERNAME, TEST_PASSWORD));
-        userAccount.delete(TEST_USERNAME);
+        Assert.assertTrue(accountService.signup(request, TEST_USERNAME, TEST_PASSWORD));
+        accountService.delete(TEST_USERNAME);
     }
 
     @Test
@@ -94,7 +94,7 @@ public class UserAccountTest {
 
         registerUser();
         try {
-            userAccount.signup(request, TEST_USERNAME, TEST_PASSWORD);
+            accountService.signup(request, TEST_USERNAME, TEST_PASSWORD);
         }
         catch (DBException e) {
             caughtException();

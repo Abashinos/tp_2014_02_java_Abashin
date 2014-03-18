@@ -1,9 +1,7 @@
 package servlets;
 
 import exceptions.DBException;
-import generator.PageGenerator;
-import org.apache.http.auth.InvalidCredentialsException;
-import services.UserAccount;
+import services.AccountService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +13,10 @@ import java.util.Map;
 
 public class SignupServlet extends HttpServlet {
 
-    private UserAccount userAccount;
+    private AccountService accountService;
 
-    public SignupServlet (UserAccount userAccount) {
-        this.userAccount = userAccount;
+    public SignupServlet (AccountService accountService) {
+        this.accountService = accountService;
     }
 
     @Override
@@ -42,7 +40,7 @@ public class SignupServlet extends HttpServlet {
         try {
             switch (request.getRequestURI()) {
                 case ("/login"):
-                    if (!inputUsername.equals("") && !inputPassword.equals("") && userAccount.login(request, inputUsername, inputPassword)) {
+                    if (!inputUsername.equals("") && !inputPassword.equals("") && accountService.login(request, inputUsername, inputPassword)) {
                         response.sendRedirect("/timer");
                     }
                     else {
@@ -52,7 +50,7 @@ public class SignupServlet extends HttpServlet {
                     }
                     break;
                 case ("/signup"):
-                    if (!inputUsername.equals("") && !inputPassword.equals("") && userAccount.signup(request, inputUsername, inputPassword)) {
+                    if (!inputUsername.equals("") && !inputPassword.equals("") && accountService.signup(request, inputUsername, inputPassword)) {
                         response.sendRedirect("/timer");
                     }
                     else {

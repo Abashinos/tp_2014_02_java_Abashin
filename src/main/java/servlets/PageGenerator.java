@@ -1,4 +1,4 @@
-package generator;
+package servlets;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
