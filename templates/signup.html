@@ -28,7 +28,13 @@
                 <input type="submit" value="Sign up" name="submit" />
             </label>
         </form>
-        <a href="/login">Log in here</a>
+        <div class="pages">
+            <#if userId??>
+                <a href="/index">Index here</a>
+                <a href="/timer">Timer here</a>
+            </#if>
+            <a href="/login">Log in here</a>
+        </div>
     </div>
 </body>
 </html>

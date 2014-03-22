@@ -10,15 +10,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SignupServlet extends AuthServlet {
+public class LoginServlet extends AuthServlet {
 
     private final Map<String, Object> pageVars = new HashMap<>();
 
-    public SignupServlet (AccountService accountService) {
-        this.page = "signup.html";
+    public LoginServlet(AccountService accountService) {
+        this.page = "login.html";
         this.accountService = accountService;
     }
-
 
     @Override
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,14 +25,14 @@ public class SignupServlet extends AuthServlet {
         String inputPassword = request.getParameter("password");
 
         try {
-            accountService.signup(request, inputUsername, inputPassword);
+            accountService.login(request, inputUsername, inputPassword);
             pageVars.remove("errorMessage");
             response.sendRedirect("/timer");
         }
         catch (AccountServiceException e) {
-            pageVars.put("errorMessage", "Error during registration.");
+            pageVars.put("errorMessage", "Invalid username/password. Try again.");
             response.getWriter().println(PageGenerator.getPage(page, pageVars));
         }
-
     }
+
 }

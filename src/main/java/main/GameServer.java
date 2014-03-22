@@ -4,7 +4,7 @@ import DAO.UserDAOimpl;
 import connectors.DBConnector;
 import connectors.DBConnectorMySQL;
 import services.AccountService;
-import servlets.Frontend;
+import servlets.FrontendServlet;
 import org.eclipse.jetty.rewrite.handler.RedirectRegexRule;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
@@ -13,6 +13,7 @@ import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.rewrite.handler.RewriteHandler;
+import servlets.LoginServlet;
 import servlets.SignupServlet;
 
 public class GameServer {
@@ -42,15 +43,15 @@ public class GameServer {
     }
 
     private HandlerList getServerHandlers() {
-        Frontend frontend = new Frontend();
+        FrontendServlet frontendServlet = new FrontendServlet();
         UserDAOimpl userDAO = new UserDAOimpl(dbConnector.getSessionFactory());
         AccountService accountService = new AccountService(userDAO);
         SignupServlet signupServlet = new SignupServlet(accountService);
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(signupServlet), "/signup");
-        context.addServlet(new ServletHolder(signupServlet), "/login");
-        context.addServlet(new ServletHolder(frontend), "/*");
+        context.addServlet(new ServletHolder(new LoginServlet(accountService)), "/login");
+        context.addServlet(new ServletHolder(frontendServlet), "/*");
 
         ResourceHandler resourceHandler = new ResourceHandler();
         resourceHandler.setResourceBase("static");

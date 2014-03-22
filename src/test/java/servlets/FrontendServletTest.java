@@ -14,17 +14,17 @@ import java.io.StringWriter;
 
 import static org.mockito.Mockito.*;
 
-public class FrontendTest {
+public class FrontendServletTest {
     private static final HttpServletRequest request = mock(HttpServletRequest.class);
     private static final HttpServletResponse response = mock(HttpServletResponse.class);
     private static final HttpSession session = mock(HttpSession.class);
-    private static Frontend frontend;
+    private static FrontendServlet frontendServlet;
     private static final StringWriter stringWriter = new StringWriter();
     private static final PrintWriter printWriter = new PrintWriter(stringWriter);
 
     @Before
     public void setUp() throws Exception {
-        frontend = new Frontend();
+        frontendServlet = new FrontendServlet();
 
         when(request.getSession()).thenReturn(session);
         when(response.getWriter()).thenReturn(printWriter);
@@ -39,7 +39,7 @@ public class FrontendTest {
         when(request.getRequestURI()).thenReturn("/index");
         when(request.getServletPath()).thenReturn("");
         when(session.getAttribute("userId")).thenReturn(0L);
-        frontend.doGet(request, response);
+        frontendServlet.doGet(request, response);
 
         Assert.assertTrue(stringWriter.toString().contains("<meta name=\"page\" content=\"index\">"));
     }
@@ -49,7 +49,7 @@ public class FrontendTest {
         when(request.getRequestURI()).thenReturn("/index");
         when(request.getServletPath()).thenReturn("");
         when(session.getAttribute("userId")).thenReturn(null);
-        frontend.doGet(request, response);
+        frontendServlet.doGet(request, response);
 
         verify(response, atLeastOnce()).sendRedirect("/login");
     }
@@ -61,7 +61,7 @@ public class FrontendTest {
         when(request.getRequestURI()).thenReturn("/timer");
         when(request.getServletPath()).thenReturn("");
         when(session.getAttribute("userId")).thenReturn(0L);
-        frontend.doGet(request, response);
+        frontendServlet.doGet(request, response);
 
         Assert.assertTrue(stringWriter.toString().contains("<meta name=\"page\" content=\"timer\">"));
     }
@@ -71,7 +71,7 @@ public class FrontendTest {
         when(request.getRequestURI()).thenReturn("/timer");
         when(request.getServletPath()).thenReturn("");
         when(session.getAttribute("userId")).thenReturn(null);
-        frontend.doGet(request, response);
+        frontendServlet.doGet(request, response);
 
         verify(response, atLeastOnce()).sendRedirect("/login");
     }
