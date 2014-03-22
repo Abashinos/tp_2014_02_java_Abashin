@@ -1,6 +1,6 @@
 package servlets;
 
-import DAO.UserDAOimpl;
+import services.UserDAOimpl;
 import connectors.DBConnectorH2;
 import junit.framework.Assert;
 import org.junit.After;

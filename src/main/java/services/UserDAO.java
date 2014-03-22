@@ -1,4 +1,4 @@
-package DAO;
+package services;
 
 import dataSets.UserDataSet;
 import exceptions.DBException;

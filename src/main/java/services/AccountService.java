@@ -1,12 +1,11 @@
 package services;
 
-import DAO.UserDAOimpl;
 import dataSets.UserDataSet;
+import exceptions.AccountServiceException;
 import exceptions.DBException;
 import exceptions.InvalidDataException;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class AccountService {
 
@@ -16,18 +15,18 @@ public class AccountService {
         this.DAO = dao;
     }
 
-    public boolean login (HttpServletRequest request, String inputUsername, String inputPassword) throws DBException {
+    public long login (HttpServletRequest request, String inputUsername, String inputPassword) throws AccountServiceException {
         UserDataSet user = DAO.getByName(inputUsername);
-        if (user != null && user.getPassword().equals(inputPassword)) {
+        if (user.getPassword().equals(inputPassword)) {
             long userId = user.getId();
-            request.getSession().setAttribute("userId", userId);
-            return true;
+            return userId;
         }
-        else
-            return false;
+        else {
+            throw new AccountServiceException();
+        }
     }
 
-    public boolean signup (HttpServletRequest request, String inputUsername, String inputPassword) throws DBException {
+    public long signup (HttpServletRequest request, String inputUsername, String inputPassword) throws AccountServiceException {
         DAO.add(new UserDataSet(inputUsername, inputPassword));
         return login(request, inputUsername, inputPassword);
     }

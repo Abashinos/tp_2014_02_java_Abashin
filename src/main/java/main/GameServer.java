@@ -1,6 +1,6 @@
 package main;
 
-import DAO.UserDAOimpl;
+import services.UserDAOimpl;
 import connectors.DBConnector;
 import connectors.DBConnectorMySQL;
 import services.AccountService;
