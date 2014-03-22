@@ -43,13 +43,13 @@ public class AccountServiceTest {
         //HttpSession tempSession = mock(HttpSession.class);
         when(request.getSession()).thenReturn(session);
 
-        return accountService.signup(request, username, password);
+        return accountService.signup(username, password);
     }
     public static long registerUser() throws Exception {
         when(request.getSession()).thenReturn(session);
         TEST_USERNAME = randomStringGenerator(10);
         TEST_PASSWORD = randomStringGenerator(10);
-        return accountService.signup(request, TEST_USERNAME, TEST_PASSWORD);
+        return accountService.signup(TEST_USERNAME, TEST_PASSWORD);
     }
 
     public static boolean deleteUser(String username) throws InvalidDataException {
@@ -75,7 +75,7 @@ public class AccountServiceTest {
     public void loginTestBad() throws Exception {
         String badUsername = randomStringGenerator(10);
         String badPassword = randomStringGenerator(10);
-        accountService.login(request, badUsername, badPassword);
+        accountService.login(badUsername, badPassword);
     }
 
     @Test
@@ -95,7 +95,7 @@ public class AccountServiceTest {
 
         registerUser();
         try {
-            accountService.signup(request, TEST_USERNAME, TEST_PASSWORD);
+            accountService.signup(TEST_USERNAME, TEST_PASSWORD);
         }
         catch (DBException e) {
             caughtException();

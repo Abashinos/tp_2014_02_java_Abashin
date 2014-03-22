@@ -105,7 +105,7 @@ public class SignupServletTest {
     public void doPostSignupBad() throws Exception {
         String username = randomStringGenerator(10);
         String password = randomStringGenerator(10);
-        accountService.signup(request, username, password);
+        accountService.signup(username, password);
 
         when(request.getParameter("username")).thenReturn(username);
         when(request.getParameter("password")).thenReturn(password);
@@ -120,7 +120,7 @@ public class SignupServletTest {
     public void doPostLoginGood() throws Exception {
         String username = randomStringGenerator(10);
         String password = randomStringGenerator(10);
-        accountService.signup(request, username, password);
+        accountService.signup(username, password);
 
         when(request.getParameter("username")).thenReturn(username);
         when(request.getParameter("password")).thenReturn(password);

@@ -26,7 +26,7 @@ public class SignupServlet extends AuthServlet {
         String inputPassword = request.getParameter("password");
 
         try {
-            long userId = accountService.signup(request, inputUsername, inputPassword);
+            long userId = accountService.signup(inputUsername, inputPassword);
             request.getSession().setAttribute("userId", userId);
             pageVars.remove("errorMessage");
             response.sendRedirect("/timer");
