@@ -28,8 +28,8 @@ public class AccountService {
     }
 
     public boolean signup (HttpServletRequest request, String inputUsername, String inputPassword) throws DBException {
-        boolean isRegistered = DAO.add(new UserDataSet(inputUsername, inputPassword));
-        return isRegistered && login(request, inputUsername, inputPassword);
+        DAO.add(new UserDataSet(inputUsername, inputPassword));
+        return login(request, inputUsername, inputPassword);
     }
 
     public boolean delete (String username) throws InvalidDataException {

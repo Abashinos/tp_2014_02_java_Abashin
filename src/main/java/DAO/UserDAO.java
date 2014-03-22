@@ -9,6 +9,6 @@ public interface UserDAO {
 
     UserDataSet getById (long id);
     UserDataSet getByName (String name) throws InvalidDataException;
-    boolean add (UserDataSet dataSet) throws DBException;
+    void add (UserDataSet dataSet) throws DBException;
     boolean delete (String name) throws InvalidDataException;
 }

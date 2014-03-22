@@ -16,7 +16,7 @@ public class UserDAOimpl implements UserDAO {
         this.sessionFactory = sessionFactory;
     }
 
-    public boolean add (UserDataSet dataSet) throws DBException {
+    public void add (UserDataSet dataSet) throws DBException {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
@@ -29,11 +29,8 @@ public class UserDAOimpl implements UserDAO {
         }
         catch (HibernateException e){
             session.close();
-            return false;
         }
-
         session.close();
-        return true;
     }
 
     public boolean delete (String username) throws InvalidDataException {
