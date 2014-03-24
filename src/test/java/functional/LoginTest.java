@@ -3,9 +3,6 @@ package functional;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import services.AccountServiceTest;
-
-import static supplies.RandomSupply.randomStringGenerator;
 
 public class LoginTest extends AuthTest {
 
@@ -16,12 +13,10 @@ public class LoginTest extends AuthTest {
 
     @Test
     public void loginTest() throws Exception {
-        String username = randomStringGenerator(10);
-        String password = randomStringGenerator(10);
         String address = "http://localhost:" + PORT_NUMBER;
 
-        AccountServiceTest.registerUser(username, password);
-        Assert.assertTrue(executeAuthTest(address, username, password));
-        AccountServiceTest.deleteUser(username);
+        accountService.signup(TEST_USERNAME, TEST_PASSWORD);
+        Assert.assertTrue(executeAuthTest(address, TEST_USERNAME, TEST_PASSWORD));
+        accountService.delete(TEST_USERNAME);
     }
 }

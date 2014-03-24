@@ -43,15 +43,13 @@ public class GameServer {
     }
 
     private HandlerList getServerHandlers() {
-        FrontendServlet frontendServlet = new FrontendServlet();
         UserDAOimpl userDAO = new UserDAOimpl(dbConnector.getSessionFactory());
         AccountService accountService = new AccountService(userDAO);
-        SignupServlet signupServlet = new SignupServlet(accountService);
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.addServlet(new ServletHolder(signupServlet), "/signup");
+        context.addServlet(new ServletHolder(new SignupServlet(accountService)), "/signup");
         context.addServlet(new ServletHolder(new LoginServlet(accountService)), "/login");
-        context.addServlet(new ServletHolder(frontendServlet), "/*");
+        context.addServlet(new ServletHolder(new FrontendServlet()), "/*");
 
         ResourceHandler resourceHandler = new ResourceHandler();
         resourceHandler.setResourceBase("static");

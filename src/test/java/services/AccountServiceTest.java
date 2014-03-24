@@ -1,37 +1,35 @@
 package services;
 
+import connectors.DBConnector;
 import connectors.DBConnectorH2;
+import exceptions.AccountServiceException;
 import exceptions.DBException;
 import exceptions.InvalidDataException;
 import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import servlets.AbstractServletTest;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static supplies.RandomSupply.randomStringGenerator;
 
-public class AccountServiceTest {
+public class AccountServiceTest extends AbstractServletTest {
 
-    private static DBConnectorH2 dbConnector = new DBConnectorH2();
-    private static UserDAOimpl userDAO = new UserDAOimpl(dbConnector.getSessionFactory());
-    private static AccountService accountService = new AccountService(userDAO);
-    private static final HttpServletRequest request = mock(HttpServletRequest.class);
-    private static final HttpServletResponse response = mock(HttpServletResponse.class);
-    private static final HttpSession session = mock(HttpSession.class);
-
-    private static String TEST_USERNAME ;
-    private static String TEST_PASSWORD ;
-    private static boolean WAS_CAUGHT = false ;
+    private static AccountService accountService;
+    private static String TEST_USERNAME;
+    private static String TEST_PASSWORD;
+    private static boolean WAS_CAUGHT;
 
     @Before
     public void setUp() {
+        DBConnector dbConnector = new DBConnectorH2();
+        UserDAOimpl userDAO = new UserDAOimpl(dbConnector.getSessionFactory());
+        accountService = new AccountService(userDAO);
 
+        TEST_USERNAME = randomStringGenerator(10);
+        TEST_PASSWORD = randomStringGenerator(10);
+        WAS_CAUGHT = false;
     }
     @After
     public void tearDown() {
@@ -39,16 +37,10 @@ public class AccountServiceTest {
     }
 
     public static long registerUser(String username, String password) throws Exception {
-        //HttpServletRequest tempRequest = mock(HttpServletRequest.class);
-        //HttpSession tempSession = mock(HttpSession.class);
-        when(request.getSession()).thenReturn(session);
-
         return accountService.signup(username, password);
     }
     public static long registerUser() throws Exception {
-        when(request.getSession()).thenReturn(session);
-        TEST_USERNAME = randomStringGenerator(10);
-        TEST_PASSWORD = randomStringGenerator(10);
+
         return accountService.signup(TEST_USERNAME, TEST_PASSWORD);
     }
 
@@ -66,27 +58,32 @@ public class AccountServiceTest {
     @Test
     public void loginTestGood() throws Exception {
 
-        registerUser();
-        //TODO: catch exception
-        //Assert.assertTrue(accountService.login(request, TEST_USERNAME, TEST_PASSWORD));
+        try {
+            registerUser();
+        }
+        catch ( AccountServiceException e ) {
+            WAS_CAUGHT = true;
+        }
+        Assert.assertFalse(WAS_CAUGHT);
         deleteUser();
     }
-    @Test (expected = InvalidDataException.class)
+
+    @Test (expected = AccountServiceException.class)
     public void loginTestBad() throws Exception {
-        String badUsername = randomStringGenerator(10);
-        String badPassword = randomStringGenerator(10);
-        accountService.login(badUsername, badPassword);
+        accountService.login(TEST_USERNAME, TEST_PASSWORD);
     }
 
     @Test
     public void registerTestGood() throws Exception {
-        when(request.getSession()).thenReturn(session);
 
-        TEST_USERNAME = randomStringGenerator(10);
-        TEST_PASSWORD = randomStringGenerator(10);
-        //TODO: catch exception
-        //Assert.assertTrue(accountService.signup(request, TEST_USERNAME, TEST_PASSWORD));
-        accountService.delete(TEST_USERNAME);
+        try {
+            registerUser();
+        }
+        catch ( AccountServiceException e ) {
+            WAS_CAUGHT = true;
+        }
+        Assert.assertFalse(WAS_CAUGHT);
+        deleteUser();
     }
 
     @Test
