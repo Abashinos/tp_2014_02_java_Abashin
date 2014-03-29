@@ -7,15 +7,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+
+import static supplies.ResponseGenerator.*;
 
 public class LoginServlet extends AuthServlet {
 
-    private final Map<String, Object> pageVars = new HashMap<>();
-
     public LoginServlet(AccountService accountService) {
-        this.page = "login.html";
+        setPage("login.html");
         this.accountService = accountService;
     }
 
@@ -27,12 +25,14 @@ public class LoginServlet extends AuthServlet {
         try {
             long userId = accountService.login(inputUsername, inputPassword);
             request.getSession().setAttribute("userId", userId);
-            pageVars.remove("errorMessage");
+            removeFromPageVars("errorMessage");
+            setRedirectData(response);
             response.sendRedirect("/timer");
         }
         catch (AccountServiceException e) {
-            pageVars.put("errorMessage", "Invalid username/password. Try again.");
-            response.getWriter().println(PageGenerator.getPage(page, pageVars));
+            putInPageVars("errorMessage", "Invalid username/password. Try again.");
+            setSuccessData(response);
+            response.getWriter().println(PageGenerator.getPage(getPage(), getPageVars()));
         }
     }
 

@@ -38,7 +38,7 @@ public abstract class AuthTest {
         accountService = new AccountService(userDAO);
 
         gameServer = new GameServer(PORT_NUMBER);
-        gameServer.setDBConnector(dbConnection);
+        gameServer.setDBConnection(dbConnection);
         thread = new Thread( new Runnable() {
             @Override
             public void run() {

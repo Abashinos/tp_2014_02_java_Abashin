@@ -24,7 +24,7 @@ public class AccountServiceTest extends AbstractServletTest {
     @Before
     public void setUp() {
         DBConnection dbConnection = new DBConnection( new DBConnectorH2() );
-        UserDAOimpl userDAO = new UserDAOimpl(dbConnection.getSessionFactory());
+        UserDAO userDAO = new UserDAOimpl(dbConnection.getSessionFactory());
         accountService = new AccountService(userDAO);
 
         TEST_USERNAME = randomStringGenerator(10);

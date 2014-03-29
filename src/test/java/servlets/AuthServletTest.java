@@ -3,6 +3,7 @@ package servlets;
 import connectors.DBConnection;
 import connectors.DBConnectorH2;
 import services.AccountService;
+import services.UserDAO;
 import services.UserDAOimpl;
 
 import static org.mockito.Mockito.when;
@@ -18,7 +19,7 @@ public class AuthServletTest extends AbstractServletTest {
         super.setUp();
 
         DBConnection dbConnection = new DBConnection ( new DBConnectorH2() );
-        UserDAOimpl userDAO = new UserDAOimpl(dbConnection.getSessionFactory());
+        UserDAO userDAO = new UserDAOimpl(dbConnection.getSessionFactory());
         accountService = new AccountService(userDAO);
 
         generatedTestUsername = randomStringGenerator(10);

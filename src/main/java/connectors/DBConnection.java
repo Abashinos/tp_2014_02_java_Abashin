@@ -7,7 +7,7 @@ import org.hibernate.service.ServiceRegistry;
 
 public final class DBConnection {
 
-    protected org.hibernate.cfg.Configuration conf = new org.hibernate.cfg.Configuration();
+    protected final org.hibernate.cfg.Configuration conf = new org.hibernate.cfg.Configuration();
     protected SessionFactory sessionFactory;
 
     public DBConnection(IConnector connector) {
@@ -16,15 +16,15 @@ public final class DBConnection {
         setSessionBuilderConfiguration();
     }
 
-    public SessionFactory getSessionFactory() {
+    public final SessionFactory getSessionFactory() {
         return sessionFactory;
     }
 
-    protected void setDataSets() {
+    protected final void setDataSets() {
         conf.addAnnotatedClass(UserDataSet.class);
     }
 
-    protected void setSessionBuilderConfiguration() {
+    protected final void setSessionBuilderConfiguration() {
         StandardServiceRegistryBuilder registryBuilder = new StandardServiceRegistryBuilder();
         registryBuilder.applySettings(conf.getProperties());
 

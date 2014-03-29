@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import static supplies.ResponseGenerator.setSuccessData;
 
 public class AuthServlet extends AbstractServlet {
 
@@ -15,13 +16,12 @@ public class AuthServlet extends AbstractServlet {
     public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long userId = (Long) request.getSession().getAttribute("userId");
 
-        response.setContentType(SUCCESS_CONTENT_TYPE);
-        response.setStatus(SUCCESS_STATUS);
-
         if (userId != null) {
-            pageVars.put("userId", userId);
+            putInPageVars("userId", userId);
         }
 
-        response.getWriter().println(PageGenerator.getPage(page, pageVars));
+        removeFromPageVars("errorMessage");
+        setSuccessData(response);
+        response.getWriter().println(PageGenerator.getPage(getPage(), getPageVars()));
     }
 }

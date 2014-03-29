@@ -10,7 +10,7 @@ import org.hibernate.exception.ConstraintViolationException;
 
 public class UserDAOimpl implements UserDAO {
 
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     public UserDAOimpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
@@ -43,11 +43,12 @@ public class UserDAOimpl implements UserDAO {
             transaction.commit();
         }
         catch (HibernateException e) {
-            session.close();
             return false;
         }
+        finally {
+            session.close();
+        }
 
-        session.close();
         return true;
     }
 
@@ -59,13 +60,24 @@ public class UserDAOimpl implements UserDAO {
         return user;
     }
 
-    public UserDataSet getByName (String name) throws InvalidDataException {
+    public UserDataSet getByName(String name) throws InvalidDataException {
         Session session = sessionFactory.openSession();
         Criteria criteria = session.createCriteria(UserDataSet.class);
         UserDataSet user = (UserDataSet) criteria.add(Restrictions.eq("username", name)).uniqueResult();
         session.close();
 
         if (user == null)
+            throw new InvalidDataException();
+
+        return user;
+    }
+    public UserDataSet getByNameAndPassword (String name, String password) throws InvalidDataException {
+        Session session = sessionFactory.openSession();
+        Criteria criteria = session.createCriteria(UserDataSet.class);
+        UserDataSet user = (UserDataSet) criteria.add(Restrictions.eq("username", name)).uniqueResult();
+        session.close();
+
+        if (user == null || !user.getPassword().equals(password))
             throw new InvalidDataException();
 
         return user;

@@ -7,15 +7,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+
+import static supplies.ResponseGenerator.*;
 
 public class SignupServlet extends AuthServlet {
 
-    private final Map<String, Object> pageVars = new HashMap<>();
-
     public SignupServlet (AccountService accountService) {
-        this.page = "signup.html";
+        setPage("signup.html");
         this.accountService = accountService;
     }
 
@@ -28,12 +26,14 @@ public class SignupServlet extends AuthServlet {
         try {
             long userId = accountService.signup(inputUsername, inputPassword);
             request.getSession().setAttribute("userId", userId);
-            pageVars.remove("errorMessage");
+            removeFromPageVars("errorMessage");
+            setRedirectData(response);
             response.sendRedirect("/timer");
         }
         catch (AccountServiceException e) {
-            pageVars.put("errorMessage", "Error during registration.");
-            response.getWriter().println(PageGenerator.getPage(page, pageVars));
+            putInPageVars("errorMessage", e.getMessage());
+            setSuccessData(response);
+            response.getWriter().println(PageGenerator.getPage(getPage(), getPageVars()));
         }
 
     }

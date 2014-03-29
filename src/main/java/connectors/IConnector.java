@@ -3,5 +3,5 @@ import org.hibernate.cfg.Configuration;
 
 public interface IConnector {
 
-    void setConfigurationProperties(Configuration conf);
+    public void setConfigurationProperties(Configuration conf);
 }

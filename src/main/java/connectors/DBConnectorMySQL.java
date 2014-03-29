@@ -4,7 +4,7 @@ import org.hibernate.cfg.Configuration;
 
 public class DBConnectorMySQL implements IConnector {
 
-    public void setConfigurationProperties(Configuration conf) {
+    public final void setConfigurationProperties(Configuration conf) {
         conf.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         conf.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
         conf.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/javadb");

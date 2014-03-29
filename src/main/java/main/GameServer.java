@@ -1,9 +1,10 @@
 package main;
 
-import services.UserDAOimpl;
+import services.UserDAO;
 import connectors.DBConnection;
 import connectors.DBConnectorMySQL;
 import services.AccountService;
+import services.UserDAOimpl;
 import servlets.FrontendServlet;
 import org.eclipse.jetty.rewrite.handler.RedirectRegexRule;
 import org.eclipse.jetty.server.Handler;
@@ -31,8 +32,8 @@ public class GameServer {
         this.dbConnection = new DBConnection( new DBConnectorMySQL() );
     }
 
-    public void setDBConnector (DBConnection connector) {
-        this.dbConnection = connector;
+    public void setDBConnection (DBConnection connection) {
+        this.dbConnection = connection;
     }
 
     public void run() throws Exception {
@@ -54,7 +55,7 @@ public class GameServer {
     }
 
     private HandlerList getServerHandlers() {
-        UserDAOimpl userDAO = new UserDAOimpl(dbConnection.getSessionFactory());
+        UserDAO userDAO = new UserDAOimpl(dbConnection.getSessionFactory());
         AccountService accountService = new AccountService(userDAO);
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
