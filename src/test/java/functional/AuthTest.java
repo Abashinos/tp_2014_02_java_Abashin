@@ -1,9 +1,10 @@
 package functional;
 
 import com.sun.istack.internal.NotNull;
-import connectors.DBConnector;
+import connectors.DBConnection;
 import connectors.DBConnectorH2;
 import main.GameServer;
+import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -18,24 +19,23 @@ import static supplies.RandomSupply.randomStringGenerator;
 
 public class AuthTest {
 
-    protected final static int PORT_NUMBER = 8880;
-    protected static String TEST_USERNAME;
-    protected static String TEST_PASSWORD;
+    protected static final int PORT_NUMBER = 8880;
 
+    protected static String baseAddress;
     protected static AccountService accountService;
+    protected static final GameServer gameServer = new GameServer(PORT_NUMBER);
+    protected static Thread thread;
 
-    protected final GameServer gameServer = new GameServer(PORT_NUMBER);
-    protected Thread thread;
+    protected String generatedTestUsername;
+    protected String generatedTestPassword;
 
-    public void setUp() throws Exception {
-        DBConnector dbConnector = new DBConnectorH2();
-        UserDAOimpl userDAO = new UserDAOimpl(dbConnector.getSessionFactory());
+    @BeforeClass
+    public static void setConnectionAndData() throws Exception {
+        DBConnection dbConnection = new DBConnection ( new DBConnectorH2() );
+        UserDAOimpl userDAO = new UserDAOimpl(dbConnection.getSessionFactory());
         accountService = new AccountService(userDAO);
 
-        TEST_USERNAME = randomStringGenerator(10);
-        TEST_PASSWORD = randomStringGenerator(10);
-
-        gameServer.setDBConnector(new DBConnectorH2());
+        gameServer.setDBConnector(dbConnection);
         thread = new Thread( new Runnable() {
             @Override
             public void run() {
@@ -47,6 +47,12 @@ public class AuthTest {
             }
         });
         thread.start();
+        baseAddress = "http://localhost:" + PORT_NUMBER;
+    }
+
+    public void setUp() throws Exception {
+        generatedTestUsername = randomStringGenerator(10);
+        generatedTestPassword = randomStringGenerator(10);
     }
 
 

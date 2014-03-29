@@ -1,5 +1,6 @@
 package functional;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,10 +14,12 @@ public class SignupTest extends AuthTest {
 
     @Test
     public void signupTest() throws Exception {
-        String address = "http://localhost:" + PORT_NUMBER + "/signup";
+        Assert.assertTrue(executeAuthTest(baseAddress + "/signup", generatedTestUsername, generatedTestPassword));
+    }
 
-        Assert.assertTrue(executeAuthTest(address, TEST_USERNAME, TEST_PASSWORD));
-        accountService.delete(TEST_USERNAME);
+    @After
+    public void tearDown() throws Exception {
+        accountService.delete(generatedTestUsername);
     }
 
 }

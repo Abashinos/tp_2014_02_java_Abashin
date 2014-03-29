@@ -1,14 +1,10 @@
 package connectors;
 
-public class DBConnectorMySQL extends DBConnector {
+import org.hibernate.cfg.Configuration;
 
-    public DBConnectorMySQL() {
-        setConfigurationProperties();
-        setDataSets();
-        setSessionBuilderConfiguration();
-    }
+public class DBConnectorMySQL implements IConnector {
 
-    private void setConfigurationProperties() {
+    public void setConfigurationProperties(Configuration conf) {
         conf.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         conf.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
         conf.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/javadb");

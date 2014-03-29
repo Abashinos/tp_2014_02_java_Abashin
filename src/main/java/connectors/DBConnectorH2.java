@@ -1,15 +1,10 @@
 package connectors;
 
+import org.hibernate.cfg.Configuration;
 
-public class DBConnectorH2 extends DBConnector {
+public class DBConnectorH2 implements IConnector {
 
-    public DBConnectorH2() {
-        setConfigurationProperties();
-        setDataSets();
-        setSessionBuilderConfiguration();
-    }
-
-    private void setConfigurationProperties() {
+    public void setConfigurationProperties(Configuration conf) {
         conf.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
         conf.setProperty("hibernate.connection.driver_class", "org.h2.Driver");
         conf.setProperty("hibernate.connection.url", "jdbc:h2:mem:java_db;INIT=RUNSCRIPT FROM 'src/create.sql';MVCC=true");

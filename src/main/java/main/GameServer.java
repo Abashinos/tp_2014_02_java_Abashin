@@ -1,7 +1,7 @@
 package main;
 
 import services.UserDAOimpl;
-import connectors.DBConnector;
+import connectors.DBConnection;
 import connectors.DBConnectorMySQL;
 import services.AccountService;
 import servlets.FrontendServlet;
@@ -19,18 +19,18 @@ import servlets.SignupServlet;
 public class GameServer {
 
     private int portNumber = 8080;
-    private DBConnector dbConnector;
+    private DBConnection dbConnection;
 
     public GameServer () {
         this(8080);
     }
     public GameServer (int port) {
         this.portNumber = port;
-        this.dbConnector = new DBConnectorMySQL();
+        this.dbConnection = new DBConnection( new DBConnectorMySQL() );
     }
 
-    public void setDBConnector (DBConnector connector) {
-        this.dbConnector = connector;
+    public void setDBConnector (DBConnection connector) {
+        this.dbConnection = connector;
     }
 
     public void run() throws Exception {
@@ -43,7 +43,7 @@ public class GameServer {
     }
 
     private HandlerList getServerHandlers() {
-        UserDAOimpl userDAO = new UserDAOimpl(dbConnector.getSessionFactory());
+        UserDAOimpl userDAO = new UserDAOimpl(dbConnection.getSessionFactory());
         AccountService accountService = new AccountService(userDAO);
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);

@@ -1,12 +1,12 @@
 package services;
 
-import dataSets.UserDataSet;
+import services.dataSets.UserDataSet;
 import exceptions.AccountServiceException;
 import exceptions.InvalidDataException;
 
 public class AccountService {
 
-    private UserDAOimpl DAO;
+    private UserDAO DAO;
 
     public AccountService(UserDAOimpl dao) {
         this.DAO = dao;

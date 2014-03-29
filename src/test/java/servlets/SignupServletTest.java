@@ -37,16 +37,16 @@ public class SignupServletTest extends AuthServletTest {
         signupServlet.doPost(request, response);
 
         verify(response, atLeastOnce()).sendRedirect("/timer");
-        accountService.delete(TEST_USERNAME);
+        accountService.delete(generatedTestUsername);
     }
     @Test
     public void doPostSignupBad() throws Exception {
-        accountService.signup(TEST_USERNAME, TEST_PASSWORD);
+        accountService.signup(generatedTestUsername, generatedTestPassword);
 
         signupServlet.doPost(request, response);
 
         Assert.assertTrue(stringWriter.toString().contains("id=\"errormessage\""));
-        accountService.delete(TEST_USERNAME);
+        accountService.delete(generatedTestUsername);
     }
 
 }

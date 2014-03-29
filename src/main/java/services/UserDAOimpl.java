@@ -1,6 +1,6 @@
 package services;
 
-import dataSets.UserDataSet;
+import services.dataSets.UserDataSet;
 import exceptions.DBException;
 import exceptions.InvalidDataException;
 import org.hibernate.*;

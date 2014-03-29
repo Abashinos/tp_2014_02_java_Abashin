@@ -1,4 +1,4 @@
-package dataSets;
+package services.dataSets;
 
 import javax.persistence.*;
 

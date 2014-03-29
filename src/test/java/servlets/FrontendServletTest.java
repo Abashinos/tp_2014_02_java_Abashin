@@ -13,15 +13,11 @@ public class FrontendServletTest extends AbstractServletTest {
 
     @Before
     public void setUp() throws Exception {
+        super.setUp();
+
         frontendServlet = new FrontendServlet();
 
         when(request.getServletPath()).thenReturn("");
-
-        super.setUp();
-    }
-    @After
-    public void tearDown() throws Exception {
-
     }
 
     @Test

@@ -36,19 +36,19 @@ public class LoginServletTest extends AuthServletTest {
 
     @Test
     public void doPostLoginGood() throws Exception {
-        accountService.signup(TEST_USERNAME, TEST_PASSWORD);
+        accountService.signup(generatedTestUsername, generatedTestPassword);
 
         loginServlet.doPost(request, response);
 
         verify(response, atLeastOnce()).sendRedirect("/timer");
-        accountService.delete(TEST_USERNAME);
+        accountService.delete(generatedTestUsername);
     }
 
     @Test
     public void doPostLoginBad() throws Exception {
 
-        when(request.getParameter("username")).thenReturn(TEST_USERNAME);
-        when(request.getParameter("password")).thenReturn(TEST_PASSWORD);
+        when(request.getParameter("username")).thenReturn(generatedTestUsername);
+        when(request.getParameter("password")).thenReturn(generatedTestPassword);
         loginServlet.doPost(request, response);
 
         Assert.assertTrue(stringWriter.toString().contains("id=\"errormessage\""));

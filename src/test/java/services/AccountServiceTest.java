@@ -1,6 +1,6 @@
 package services;
 
-import connectors.DBConnector;
+import connectors.DBConnection;
 import connectors.DBConnectorH2;
 import exceptions.AccountServiceException;
 import exceptions.DBException;
@@ -23,8 +23,8 @@ public class AccountServiceTest extends AbstractServletTest {
 
     @Before
     public void setUp() {
-        DBConnector dbConnector = new DBConnectorH2();
-        UserDAOimpl userDAO = new UserDAOimpl(dbConnector.getSessionFactory());
+        DBConnection dbConnection = new DBConnection( new DBConnectorH2() );
+        UserDAOimpl userDAO = new UserDAOimpl(dbConnection.getSessionFactory());
         accountService = new AccountService(userDAO);
 
         TEST_USERNAME = randomStringGenerator(10);
