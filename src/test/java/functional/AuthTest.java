@@ -4,6 +4,7 @@ import com.sun.istack.internal.NotNull;
 import connectors.DBConnection;
 import connectors.DBConnectorH2;
 import main.GameServer;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -13,17 +14,18 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import services.AccountService;
+import services.UserDAO;
 import services.UserDAOimpl;
 
 import static supplies.RandomSupply.randomStringGenerator;
 
-public class AuthTest {
+public abstract class AuthTest {
 
     protected static final int PORT_NUMBER = 8880;
 
     protected static String baseAddress;
     protected static AccountService accountService;
-    protected static final GameServer gameServer = new GameServer(PORT_NUMBER);
+    protected static GameServer gameServer;
     protected static Thread thread;
 
     protected String generatedTestUsername;
@@ -32,9 +34,10 @@ public class AuthTest {
     @BeforeClass
     public static void setConnectionAndData() throws Exception {
         DBConnection dbConnection = new DBConnection ( new DBConnectorH2() );
-        UserDAOimpl userDAO = new UserDAOimpl(dbConnection.getSessionFactory());
+        UserDAO userDAO = new UserDAOimpl(dbConnection.getSessionFactory());
         accountService = new AccountService(userDAO);
 
+        gameServer = new GameServer(PORT_NUMBER);
         gameServer.setDBConnector(dbConnection);
         thread = new Thread( new Runnable() {
             @Override
@@ -48,6 +51,11 @@ public class AuthTest {
         });
         thread.start();
         baseAddress = "http://localhost:" + PORT_NUMBER;
+    }
+
+    @AfterClass
+    public static void stopConnection() throws Exception {
+        thread.interrupt();
     }
 
     public void setUp() throws Exception {

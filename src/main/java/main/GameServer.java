@@ -16,6 +16,8 @@ import org.eclipse.jetty.rewrite.handler.RewriteHandler;
 import servlets.LoginServlet;
 import servlets.SignupServlet;
 
+import java.net.BindException;
+
 public class GameServer {
 
     private int portNumber = 8080;
@@ -38,8 +40,17 @@ public class GameServer {
 
         server.setHandler(getServerHandlers());
 
-        server.start();
-        server.join();
+        try {
+            server.start();
+            server.join();
+        }
+        catch (InterruptedException e) {
+            System.out.println("The server is stopping.");
+            server.stop();
+        }
+        catch (BindException e) {
+            System.out.print("Fail");
+        }
     }
 
     private HandlerList getServerHandlers() {

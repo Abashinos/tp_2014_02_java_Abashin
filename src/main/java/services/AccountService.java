@@ -8,7 +8,7 @@ public class AccountService {
 
     private UserDAO DAO;
 
-    public AccountService(UserDAOimpl dao) {
+    public AccountService(UserDAO dao) {
         this.DAO = dao;
     }
 
