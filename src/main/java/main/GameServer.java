@@ -1,10 +1,13 @@
 package main;
 
+import messaging.MessageService;
+import messaging.ServletFactory;
 import services.UserDAO;
 import connectors.DBConnection;
 import connectors.DBConnectorMySQL;
 import services.AccountService;
 import services.UserDAOimpl;
+import servlets.AbstractServlet;
 import servlets.FrontendServlet;
 import org.eclipse.jetty.rewrite.handler.RedirectRegexRule;
 import org.eclipse.jetty.server.Handler;
@@ -49,19 +52,19 @@ public class GameServer {
             System.out.println("The server is stopping.");
             server.stop();
         }
-        catch (BindException e) {
-            System.out.print("Fail");
-        }
     }
 
-    private HandlerList getServerHandlers() {
-        UserDAO userDAO = new UserDAOimpl(dbConnection.getSessionFactory());
-        AccountService accountService = new AccountService(userDAO);
+    private HandlerList getServerHandlers() throws IllegalAccessException, InstantiationException {
+
+        ServletFactory.makeAccountService(dbConnection);
+        AbstractServlet frontendServlet = ServletFactory.makeServlet(FrontendServlet.class),
+                        loginServlet = ServletFactory.makeMServlet(LoginServlet.class),
+                        signupServlet = ServletFactory.makeMServlet(SignupServlet.class);
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.addServlet(new ServletHolder(new SignupServlet(accountService)), "/signup");
-        context.addServlet(new ServletHolder(new LoginServlet(accountService)), "/login");
-        context.addServlet(new ServletHolder(new FrontendServlet()), "/*");
+        context.addServlet(new ServletHolder(signupServlet), "/signup");
+        context.addServlet(new ServletHolder(loginServlet), "/login");
+        context.addServlet(new ServletHolder(frontendServlet), "/*");
 
         ResourceHandler resourceHandler = new ResourceHandler();
         resourceHandler.setResourceBase("static");

@@ -1,5 +1,7 @@
 package servlets;
 
+import services.UserSession;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
@@ -9,6 +11,7 @@ public abstract class AbstractServlet extends HttpServlet {
 
     private String page;
     private Map<String, Object> pageVars = new HashMap<>();
+    protected Map<String, UserSession> sessionMap;
 
     public Map<String, Object> getPageVars() {
         return pageVars;
@@ -16,6 +19,13 @@ public abstract class AbstractServlet extends HttpServlet {
 
     public String getPage() {
         return page;
+    }
+
+    public Map<String, UserSession> getSessionMap() {
+        return sessionMap;
+    }
+    public void setSessionMap(Map<String, UserSession> sessionMap) {
+        this.sessionMap = sessionMap;
     }
 
     protected Object putInPageVars(String key, Object value) {
@@ -28,4 +38,6 @@ public abstract class AbstractServlet extends HttpServlet {
     protected void setPage(String page) {
         this.page = page;
     }
+
+
 }

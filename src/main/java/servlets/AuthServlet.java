@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import static supplies.ResponseGenerator.setSuccessData;
 
-public class AuthServlet extends AbstractServlet {
+public abstract class AuthServlet extends AbstractMServlet {
 
     protected AccountService accountService;
 
