@@ -32,8 +32,7 @@ public class AccountService implements ISubscriber, Runnable {
         }
     }
 
-    public final UserSession login (String inputUsername, String inputPassword, final String sessionId)
-            throws AccountServiceException {
+    public final UserSession login (String inputUsername, String inputPassword, final String sessionId) {
         try {
             UserDataSet user = DAO.getByNameAndPassword(inputUsername, inputPassword);
             if (user.getPassword().equals(inputPassword)) {
@@ -48,8 +47,7 @@ public class AccountService implements ISubscriber, Runnable {
         }
     }
 
-    public final UserSession signup (String inputUsername, String inputPassword, final String sessionId)
-            throws AccountServiceException {
+    public final UserSession signup (String inputUsername, String inputPassword, final String sessionId) {
         if (inputUsername.isEmpty() || inputPassword.isEmpty()) {
             throw new InvalidDataException("Username/password can't be empty.");
         }

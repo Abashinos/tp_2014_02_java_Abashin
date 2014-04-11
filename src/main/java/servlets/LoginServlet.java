@@ -3,6 +3,7 @@ package servlets;
 import exceptions.AccountServiceException;
 import messaging.Address;
 import services.AccountService;
+import services.UserSession;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -31,16 +32,17 @@ public class LoginServlet extends AuthServlet {
         Address accountServiceAddress = this.getMessageService().getAddressService().getAccountServiceAddress();
 
         try {
-            long userId = accountService.login(inputUsername, inputPassword);
-            request.getSession().setAttribute("userId", userId);
+            this.getSessionMap().put(sessionId, new UserSession(sessionId));
             removeFromPageVars("errorMessage");
             setRedirectData(response);
-            response.sendRedirect("/timer");
+            //TODO: Send message
         }
-        catch (AccountServiceException e) {
-            putInPageVars("errorMessage", "Invalid username/password. Try again.");
+        //TODO: Substitute Exception
+        catch (Exception e) {
+            //TODO: Error
+            /*putInPageVars("errorMessage", "Invalid username/password. Try again.");
             setSuccessData(response);
-            response.getWriter().println(PageGenerator.getPage(getPage(), getPageVars()));
+            response.getWriter().println(PageGenerator.getPage(getPage(), getPageVars()));*/
         }
     }
 

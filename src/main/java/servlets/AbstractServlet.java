@@ -27,6 +27,12 @@ public abstract class AbstractServlet extends HttpServlet {
     public void setSessionMap(Map<String, UserSession> sessionMap) {
         this.sessionMap = sessionMap;
     }
+    public void setSession(UserSession session) {
+        if (getSessionMap().get(session.getSessionId()) != null) {
+            UserSession userSession;
+            userSession.setUserSession(session);
+        }
+    }
 
     protected Object putInPageVars(String key, Object value) {
         return pageVars.put(key, value);

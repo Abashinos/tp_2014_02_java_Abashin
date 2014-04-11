@@ -14,9 +14,14 @@ public class UserSession {
         OK
     }
 
+    public UserSession(String sessionId) {
+        this(sessionId, null, null, Status.IN_PROGRESS);
+    }
+
     public UserSession(String sessionId, Long userId, String username, Status status) {
         this(sessionId, userId, username, null, status);
     }
+
     public UserSession(String sessionId, Long userId, String username, String errorMessage, Status status) {
         this.sessionId = sessionId;
         this.userId = userId;
