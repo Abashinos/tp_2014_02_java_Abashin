@@ -1,7 +1,9 @@
 package servlets;
 
-import exceptions.AccountServiceException;
-import services.AccountService;
+import messaging.Address;
+import messaging.Message;
+import messaging.MessageToSignup;
+import services.UserSession;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,29 +14,36 @@ import static supplies.ResponseGenerator.*;
 
 public class SignupServlet extends AuthServlet {
 
-    public SignupServlet (AccountService accountService) {
+    public SignupServlet () {
         setPage("signup.html");
-        this.accountService = accountService;
     }
 
+    @Override
+    public void setSubscriber() {
+        this.getMessageService().getAddressService().setSignupServletAddress(this.getAddress());
+    }
 
     @Override
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String inputUsername = request.getParameter("username");
         String inputPassword = request.getParameter("password");
+        String sessionId = request.getSession().getId();
+        Address accountServiceAddress = this.getMessageService().getAddressService().getAccountServiceAddress();
 
-        try {
-            long userId = accountService.signup(inputUsername, inputPassword);
-            request.getSession().setAttribute("userId", userId);
-            removeFromPageVars("errorMessage");
-            setRedirectData(response);
-            response.sendRedirect("/timer");
+        if (accountServiceAddress != null) {
+            this.getSessionMap().put(sessionId, new UserSession(sessionId));
+
+            Message signupMessage = new MessageToSignup(sessionId, this.getAddress(), accountServiceAddress, inputUsername, inputPassword);
+            this.getMessageService().sendMessage(signupMessage);
+
+            response.sendRedirect("/wait");
         }
-        catch (AccountServiceException e) {
-            putInPageVars("errorMessage", e.getMessage());
+        else {
             setSuccessData(response);
-            response.getWriter().println(PageGenerator.getPage(getPage(), getPageVars()));
+            this.getSessionMap().put(sessionId, UserSession.getUserSessionError(sessionId, inputUsername, "DB error"));
         }
 
     }
+
+
 }

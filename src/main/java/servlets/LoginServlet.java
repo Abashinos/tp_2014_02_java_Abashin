@@ -2,6 +2,8 @@ package servlets;
 
 import exceptions.AccountServiceException;
 import messaging.Address;
+import messaging.Message;
+import messaging.MessageToLogin;
 import services.AccountService;
 import services.UserSession;
 
@@ -14,9 +16,8 @@ import static supplies.ResponseGenerator.*;
 
 public class LoginServlet extends AuthServlet {
 
-    public LoginServlet(AccountService accountService) {
+    public LoginServlet() {
         setPage("login.html");
-        this.accountService = accountService;
     }
 
     @Override
@@ -31,18 +32,18 @@ public class LoginServlet extends AuthServlet {
         String sessionId = request.getSession().getId();
         Address accountServiceAddress = this.getMessageService().getAddressService().getAccountServiceAddress();
 
-        try {
+        if (accountServiceAddress != null) {
             this.getSessionMap().put(sessionId, new UserSession(sessionId));
-            removeFromPageVars("errorMessage");
-            setRedirectData(response);
-            //TODO: Send message
+
+            Message loginMessage = new MessageToLogin(sessionId, this.getAddress(), accountServiceAddress, inputUsername, inputPassword);
+            this.getMessageService().sendMessage(loginMessage);
+
+            response.sendRedirect("/wait");
         }
-        //TODO: Substitute Exception
-        catch (Exception e) {
-            //TODO: Error
-            /*putInPageVars("errorMessage", "Invalid username/password. Try again.");
+        else {
             setSuccessData(response);
-            response.getWriter().println(PageGenerator.getPage(getPage(), getPageVars()));*/
+
+            this.getSessionMap().put(sessionId, UserSession.getUserSessionError(sessionId, inputUsername, "DB error"));
         }
     }
 

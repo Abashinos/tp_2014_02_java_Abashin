@@ -7,8 +7,7 @@ import connectors.DBConnection;
 import connectors.DBConnectorMySQL;
 import services.AccountService;
 import services.UserDAOimpl;
-import servlets.AbstractServlet;
-import servlets.FrontendServlet;
+import servlets.*;
 import org.eclipse.jetty.rewrite.handler.RedirectRegexRule;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
@@ -17,8 +16,6 @@ import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.rewrite.handler.RewriteHandler;
-import servlets.LoginServlet;
-import servlets.SignupServlet;
 
 import java.net.BindException;
 
@@ -58,12 +55,14 @@ public class GameServer {
 
         ServletFactory.makeAccountService(dbConnection);
         AbstractServlet frontendServlet = ServletFactory.makeServlet(FrontendServlet.class),
+                        waitServlet = ServletFactory.makeServlet(WaitServlet.class),
                         loginServlet = ServletFactory.makeMServlet(LoginServlet.class),
                         signupServlet = ServletFactory.makeMServlet(SignupServlet.class);
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(signupServlet), "/signup");
         context.addServlet(new ServletHolder(loginServlet), "/login");
+        context.addServlet(new ServletHolder(waitServlet), "/wait");
         context.addServlet(new ServletHolder(frontendServlet), "/*");
 
         ResourceHandler resourceHandler = new ResourceHandler();

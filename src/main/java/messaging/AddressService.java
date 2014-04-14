@@ -9,8 +9,6 @@ public class AddressService {
     private Address loginServletAddress;
     private Address signupServletAddress;
     private Address accountServiceAddress;
-    private List<Address> accountServicesList = new ArrayList<>();
-
 
     public Address getFrontendAddress() {
         return frontendAddress;

@@ -13,8 +13,8 @@ public abstract class AbstractMServlet extends AbstractServlet implements ISubsc
         setSubscriber();
         try {
             while (true) {
-                this.getMessageService().execForSubsciber(this);
-                Thread.sleep(500);
+                this.getMessageService().execForSubscriber(this);
+                Thread.sleep(100);
             }
         } catch (InterruptedException ignored) {
 

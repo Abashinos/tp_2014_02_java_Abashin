@@ -1,5 +1,6 @@
 package services;
 
+import exceptions.DBException;
 import messaging.Address;
 import messaging.MessageService;
 import services.dataSets.UserDataSet;
@@ -15,7 +16,7 @@ public class AccountService implements ISubscriber, Runnable {
 
     public AccountService(UserDAO dao, MessageService messageService){
         this.DAO = dao;
-        this.messageService = messageService;
+        this.setMessageService(messageService);
     }
 
     @Override
@@ -24,7 +25,7 @@ public class AccountService implements ISubscriber, Runnable {
         getMessageService().getAddressService().setAccountServiceAddress(getAddress());
         try {
             while (true) {
-                this.getMessageService().execForSubsciber(this);
+                this.getMessageService().execForSubscriber(this);
                 Thread.sleep(100);
             }
         } catch (InterruptedException ignored) {
@@ -32,7 +33,7 @@ public class AccountService implements ISubscriber, Runnable {
         }
     }
 
-    public final UserSession login (String inputUsername, String inputPassword, final String sessionId) {
+    public final UserSession login (final String inputUsername, final String inputPassword, final String sessionId) {
         try {
             UserDataSet user = DAO.getByNameAndPassword(inputUsername, inputPassword);
             if (user.getPassword().equals(inputPassword)) {
@@ -47,11 +48,16 @@ public class AccountService implements ISubscriber, Runnable {
         }
     }
 
-    public final UserSession signup (String inputUsername, String inputPassword, final String sessionId) {
-        if (inputUsername.isEmpty() || inputPassword.isEmpty()) {
-            throw new InvalidDataException("Username/password can't be empty.");
+    public final UserSession signup (final String inputUsername, final String inputPassword, final String sessionId){
+        try {
+            if (inputUsername.isEmpty() || inputPassword.isEmpty()) {
+                throw new InvalidDataException("Username/password can't be empty.");
+            }
+            DAO.add(new UserDataSet(inputUsername, inputPassword));
         }
-        DAO.add(new UserDataSet(inputUsername, inputPassword));
+        catch (DBException e) {
+            return UserSession.getUserSessionError(sessionId, inputUsername, e.getMessage());
+        }
         return login(inputUsername, inputPassword, sessionId);
     }
 

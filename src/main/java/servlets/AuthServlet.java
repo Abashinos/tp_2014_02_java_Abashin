@@ -1,6 +1,7 @@
 package servlets;
 
 import services.AccountService;
+import services.UserSession;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -10,17 +11,21 @@ import static supplies.ResponseGenerator.setSuccessData;
 
 public abstract class AuthServlet extends AbstractMServlet {
 
-    protected AccountService accountService;
 
     @Override
     public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Long userId = (Long) request.getSession().getAttribute("userId");
-
-        if (userId != null) {
-            putInPageVars("userId", userId);
-        }
+        String sessionId = request.getSession().getId();
 
         removeFromPageVars("errorMessage");
+        if (sessionId != null) {
+            UserSession userSession = getSessionMap().get(sessionId);
+
+            if (userSession != null && userSession.getErrorMessage() != null) {
+                putInPageVars("userId", userSession.getUserId());
+                putInPageVars("errorMessage", userSession.getErrorMessage());
+            }
+        }
+
         setSuccessData(response);
         response.getWriter().println(PageGenerator.getPage(getPage(), getPageVars()));
     }

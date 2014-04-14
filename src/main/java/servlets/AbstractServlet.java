@@ -28,8 +28,8 @@ public abstract class AbstractServlet extends HttpServlet {
         this.sessionMap = sessionMap;
     }
     public void setSession(UserSession session) {
-        if (getSessionMap().get(session.getSessionId()) != null) {
-            UserSession userSession;
+        UserSession userSession = getSessionMap().get(session.getSessionId());
+        if (userSession != null) {
             userSession.setUserSession(session);
         }
     }

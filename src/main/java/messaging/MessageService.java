@@ -25,7 +25,7 @@ public class MessageService {
         messageQueue.add(message);
     }
 
-    public void execForSubsciber(ISubscriber subscriber) {
+    public void execForSubscriber(ISubscriber subscriber) {
         Queue<Message> messageQueue = messages.get(subscriber.getAddress());
         if(messageQueue == null) {
             return;
