@@ -10,7 +10,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class MessageService {
     private Map<Address, ConcurrentLinkedQueue<Message>> messages = new ConcurrentHashMap<>();
     private AddressService addressService = new AddressService();
-    private static MessageService ms;
 
     public MessageService() {
 

@@ -3,11 +3,11 @@ package messaging;
 import services.UserSession;
 import servlets.AbstractMServlet;
 
-public class MessageToAMSSS extends MessageToAMS {
+public class MessageToServletSetSession extends MessageToAbstractMServlet {
 
     private UserSession session;
 
-    public MessageToAMSSS(Address from, Address to, UserSession session) {
+    public MessageToServletSetSession(Address from, Address to, UserSession session) {
         super(from, to);
         this.session = session;
     }

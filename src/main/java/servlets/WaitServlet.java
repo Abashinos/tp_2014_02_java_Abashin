@@ -1,16 +1,17 @@
 package servlets;
 
-import org.apache.commons.io.FilenameUtils;
 import services.UserSession;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class WaitServlet extends AbstractServlet {
 
-    private int trials = 0;
+    private Map<String, Integer> trials =  new HashMap<>();
 
     public WaitServlet() {
         setPage("wait.html");
@@ -21,7 +22,12 @@ public class WaitServlet extends AbstractServlet {
         String sessionId = request.getSession().getId();
         UserSession userSession = getSessionMap().get(sessionId);
 
-        if ((userSession == null || userSession.getStatus() != UserSession.Status.OK) && trials < 3 ) {
+        if (!trials.containsKey(Thread.currentThread().getName())) {
+            trials.put(Thread.currentThread().getName(), 0);
+        }
+
+
+        if ((userSession == null || userSession.getStatus() != UserSession.Status.OK) && trials.get(Thread.currentThread().getName()) < 3 ) {
             try {
                 Thread.sleep(1000);
             }
@@ -29,13 +35,13 @@ public class WaitServlet extends AbstractServlet {
 
             }
             finally {
-                ++trials;
+                trials.put(Thread.currentThread().getName(), trials.get(Thread.currentThread().getName()) + 1);
                 response.getWriter().println(PageGenerator.getPage(getPage(), getPageVars()));
                 doGet(request, response);
             }
         }
-        else if (trials >= 3) {
-            trials = 0;
+        else if (trials.get(Thread.currentThread().getName()) >= 3) {
+            trials.put(Thread.currentThread().getName(), 0);
 
             String referrer = request.getHeader("referer");
             if (referrer != null) {
@@ -54,6 +60,9 @@ public class WaitServlet extends AbstractServlet {
     @Override
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+    }
+
+    private synchronized void trialsIncrement() {
     }
 
 }

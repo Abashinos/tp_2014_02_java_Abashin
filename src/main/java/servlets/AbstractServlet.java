@@ -3,7 +3,6 @@ package servlets;
 import services.UserSession;
 
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 

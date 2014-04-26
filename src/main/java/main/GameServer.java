@@ -1,12 +1,8 @@
 package main;
 
-import messaging.MessageService;
 import messaging.ServletFactory;
-import services.UserDAO;
 import connectors.DBConnection;
 import connectors.DBConnectorMySQL;
-import services.AccountService;
-import services.UserDAOimpl;
 import servlets.*;
 import org.eclipse.jetty.rewrite.handler.RedirectRegexRule;
 import org.eclipse.jetty.server.Handler;
@@ -16,8 +12,6 @@ import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.rewrite.handler.RewriteHandler;
-
-import java.net.BindException;
 
 public class GameServer {
 

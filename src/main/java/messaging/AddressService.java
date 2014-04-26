@@ -1,8 +1,5 @@
 package messaging;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class AddressService {
 
     private Address frontendAddress;

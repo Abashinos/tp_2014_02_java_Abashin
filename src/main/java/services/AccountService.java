@@ -4,7 +4,6 @@ import exceptions.DBException;
 import messaging.Address;
 import messaging.MessageService;
 import services.dataSets.UserDataSet;
-import exceptions.AccountServiceException;
 import exceptions.InvalidDataException;
 import servlets.ISubscriber;
 

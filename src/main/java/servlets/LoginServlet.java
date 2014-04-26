@@ -1,10 +1,8 @@
 package servlets;
 
-import exceptions.AccountServiceException;
 import messaging.Address;
 import messaging.Message;
 import messaging.MessageToLogin;
-import services.AccountService;
 import services.UserSession;
 
 import javax.servlet.ServletException;

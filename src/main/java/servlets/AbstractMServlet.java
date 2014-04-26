@@ -37,5 +37,5 @@ public abstract class AbstractMServlet extends AbstractServlet implements ISubsc
         this.address = new Address();
     }
 
-    public abstract void setSubscriber();
+    protected abstract void setSubscriber();
 }

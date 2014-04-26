@@ -1,9 +1,7 @@
 package messaging;
 
-import exceptions.AccountServiceException;
 import services.AccountService;
 import services.UserSession;
-import servlets.ISubscriber;
 
 public class MessageToLogin extends MessageToAccountService {
     private String sessionId;
@@ -19,6 +17,6 @@ public class MessageToLogin extends MessageToAccountService {
 
     public void exec(AccountService accountService){
         UserSession session = accountService.login(username, password, sessionId);
-        accountService.getMessageService().sendMessage(new MessageToAMSSS(this.getTo(), this.getFrom(), session));
+        accountService.getMessageService().sendMessage(new MessageToServletSetSession(this.getTo(), this.getFrom(), session));
     }
 }

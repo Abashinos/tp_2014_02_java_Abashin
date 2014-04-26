@@ -1,6 +1,5 @@
 package servlets;
 
-import services.AccountService;
 import services.UserSession;
 
 import javax.servlet.ServletException;

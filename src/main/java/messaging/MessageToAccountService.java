@@ -1,6 +1,5 @@
 package messaging;
 
-import exceptions.AccountServiceException;
 import services.AccountService;
 import servlets.ISubscriber;
 

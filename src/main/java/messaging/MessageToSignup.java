@@ -17,7 +17,7 @@ public class MessageToSignup extends MessageToAccountService {
 
     public void exec(AccountService accountService){
         UserSession session = accountService.signup(username, password, sessionId);
-        accountService.getMessageService().sendMessage(new MessageToAMSSS(this.getTo(), this.getFrom(), session));
+        accountService.getMessageService().sendMessage(new MessageToServletSetSession(this.getTo(), this.getFrom(), session));
     }
 }
 

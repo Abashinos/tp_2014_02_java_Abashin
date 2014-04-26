@@ -3,9 +3,9 @@ package messaging;
 import servlets.AbstractMServlet;
 import servlets.ISubscriber;
 
-public abstract class MessageToAMS extends Message {
+public abstract class MessageToAbstractMServlet extends Message {
 
-    public MessageToAMS(Address from, Address to) {
+    public MessageToAbstractMServlet(Address from, Address to) {
         super(from, to);
     }
 
