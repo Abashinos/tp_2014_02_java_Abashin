@@ -21,6 +21,7 @@ public class WaitServlet extends AbstractServlet {
     public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String sessionId = request.getSession().getId();
         UserSession userSession = getSessionMap().get(sessionId);
+        Map<String, Object> pageData = new HashMap<>();
 
         if (!trials.containsKey(Thread.currentThread().getName())) {
             trials.put(Thread.currentThread().getName(), 0);
@@ -36,7 +37,7 @@ public class WaitServlet extends AbstractServlet {
             }
             finally {
                 trials.put(Thread.currentThread().getName(), trials.get(Thread.currentThread().getName()) + 1);
-                response.getWriter().println(PageGenerator.getPage(getPage(), getPageVars()));
+                response.getWriter().println(PageGenerator.getPage(getPage(), pageData));
                 doGet(request, response);
             }
         }

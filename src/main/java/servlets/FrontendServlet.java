@@ -6,6 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import static supplies.ResponseGenerator.*;
 
@@ -15,6 +17,7 @@ public class FrontendServlet extends AbstractServlet {
     public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String sessionId = request.getSession().getId();
         UserSession userSession = getSessionMap().get(sessionId);
+        Map<String, Object> pageData = new HashMap<>();
 
         setPage(request.getRequestURI().substring(1) + ".html");
 
@@ -24,9 +27,9 @@ public class FrontendServlet extends AbstractServlet {
         }
         else {
             setSuccessData(response);
-            putInPageVars("userId", userSession.getUserId());
-            putInPageVars("sessionId", sessionId);
-            response.getWriter().println(PageGenerator.getPage(getPage(), getPageVars()));
+            pageData.put("userId", userSession.getUserId());
+            pageData.put("sessionId", sessionId);
+            response.getWriter().println(PageGenerator.getPage(getPage(), pageData));
         }
     }
 
