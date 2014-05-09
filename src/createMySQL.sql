@@ -1,6 +1,5 @@
 CREATE SCHEMA IF NOT EXISTS `java_db` ;
-SET SCHEMA `java_db` ;
-
+USE `java_db`;
 -- -----------------------------------------------------
 -- Table `java_db`.`users`
 -- -----------------------------------------------------
