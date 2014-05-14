@@ -1,10 +1,10 @@
 package supplies;
 
 import java.util.Random;
+import static resources.RandomSupplyData.*;
 
 public class RandomSupply {
 
-    private static final String alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final int alphabet_len = alphabet.length();
 
     public static String randomStringGenerator(int size) {

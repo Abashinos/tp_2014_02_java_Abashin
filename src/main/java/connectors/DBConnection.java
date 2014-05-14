@@ -10,6 +10,7 @@ public final class DBConnection {
     protected final org.hibernate.cfg.Configuration conf = new org.hibernate.cfg.Configuration();
     protected SessionFactory sessionFactory;
 
+    // TODO: change setConfigurationProperties to resource
     public DBConnection(IConnector connector) {
         connector.setConfigurationProperties(conf);
         setDataSets();

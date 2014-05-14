@@ -30,7 +30,7 @@ public class WaitServlet extends AbstractServlet {
 
         if ((userSession == null || userSession.getStatus() != UserSession.Status.OK) && trials.get(Thread.currentThread().getName()) < 3 ) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             }
             catch (InterruptedException ignored) {
 
