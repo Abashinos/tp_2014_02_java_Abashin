@@ -2,8 +2,6 @@ package services;
 
 import connectors.DBConnection;
 import connectors.DBConnectorH2;
-import exceptions.AccountServiceException;
-import exceptions.DBException;
 import exceptions.InvalidDataException;
 import messaging.ServletFactory;
 import org.junit.Assert;
@@ -12,8 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 import servlets.AbstractServletTest;
 
-import static org.mockito.Mockito.when;
-import static supplies.RandomSupply.randomStringGenerator;
 
 public class AccountServiceTest extends AbstractServletTest {
 

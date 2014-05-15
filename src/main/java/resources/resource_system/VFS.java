@@ -43,8 +43,7 @@ public enum VFS {
     public DataInputStream getDataInputStream (String path) throws IOException {
         String absolutePath = getAbsolutePath(path);
         FileInputStream fis = new FileInputStream(absolutePath);
-        DataInputStream dis = new DataInputStream(fis);
-        return(dis);
+        return(new DataInputStream(fis));
     }
 
     public byte[] getByteFile (String path) throws IOException {

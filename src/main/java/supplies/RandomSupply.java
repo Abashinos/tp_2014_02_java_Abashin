@@ -4,17 +4,15 @@ import resources.RandomSupplyData;
 import resources.resource_system.ResourceFactory;
 
 import java.util.Random;
-import static resources.RandomSupplyData.*;
 import java.util.UUID;
 
 public class RandomSupply {
 
-    private static String alphabet = null;
     private static Random random;
 
     public static String randomStringGenerator(int size) {
         RandomSupplyData randomSupplyData = (RandomSupplyData) ResourceFactory.getInstance().get("randomSupplyData");
-        alphabet = randomSupplyData.alphabet;
+        String alphabet = randomSupplyData.alphabet;
         StringBuilder result = new StringBuilder();
         random = new Random();
 

@@ -15,7 +15,7 @@ import static supplies.ResponseGenerator.*;
 public class SignupServlet extends AuthServlet {
 
     public SignupServlet () {
-        setPage("signup.html");
+        setPage(pagesData.SIGNUP_PAGE);
     }
 
     @Override

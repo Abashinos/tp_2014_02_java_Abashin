@@ -9,18 +9,20 @@ public class ResponseGenerator {
 
     private static ResponseData responseData = null;
 
-    public static void setSuccessData(HttpServletResponse response) {
+    private static void instantiateResponseData() {
         if (responseData == null) {
             responseData = (ResponseData) ResourceFactory.getInstance().get("responseData");
         }
+    }
+
+    public static void setSuccessData(HttpServletResponse response) {
+        instantiateResponseData();
         response.setContentType(responseData.CONTENT_TYPE);
         response.setStatus(responseData.SUCCESS_STATUS);
     }
 
     public static void setRedirectData(HttpServletResponse response) {
-        if (responseData == null) {
-            responseData = (ResponseData) ResourceFactory.getInstance().get("responseData");
-        }
+        instantiateResponseData();
         response.setContentType(responseData.CONTENT_TYPE);
         response.setStatus(responseData.REDIRECT_STATUS);
     }

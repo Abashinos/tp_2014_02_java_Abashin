@@ -2,7 +2,6 @@ package resources.resource_system;
 
 import resources.Resource;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
@@ -22,7 +21,7 @@ public class ResourceFactory {
 
     }
 
-    public static ResourceFactory getInstance() {
+    public static synchronized ResourceFactory getInstance() {
         if (instance == null) {
             vfs = VFS.INSTANCE;
             instance = new ResourceFactory();

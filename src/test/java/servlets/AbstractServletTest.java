@@ -1,7 +1,5 @@
 package servlets;
 
-import messaging.AddressService;
-import messaging.MessageService;
 import services.UserSession;
 
 import javax.servlet.http.HttpServletRequest;

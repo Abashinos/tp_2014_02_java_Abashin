@@ -3,7 +3,10 @@
   <component name="FacetManager">
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map />
+        <datasource-map>
+          <unit-entry name="h2Db.xml" value="b0e61880-7ec2-4937-a74b-528e4fd422b9" />
+          <unit-entry name="mySqlDb.xml" value="0a499dd2-2d40-4b4f-9881-fb25b6aeeeaa" />
+        </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/h2Db.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/mySqlDb.xml" />

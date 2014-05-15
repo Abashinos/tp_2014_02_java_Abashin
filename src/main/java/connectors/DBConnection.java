@@ -1,12 +1,9 @@
 package connectors;
 
-import resources.resource_system.VFS;
 import services.dataSets.UserDataSet;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.service.ServiceRegistry;
-
-import java.io.FileNotFoundException;
 
 public final class DBConnection {
 

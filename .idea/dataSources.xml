@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2141080472">
+    <data-source source="LOCAL" name="h2Db.xml" uuid="b0e61880-7ec2-4937-a74b-528e4fd422b9">
+      <driver-ref>h2.embedded</driver-ref>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:mem:java_db;INIT=RUNSCRIPT FROM 'src/createH2.sql';MVCC=true</jdbc-url>
+      <user-name>snake</user-name>
+      <user-password>dfd9dfc4dfcbdfc1dfcf</user-password>
+      <libraries>
+        <library>
+          <url>file://C:\Program Files (x86)\H2\bin\h2-1.3.176.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="mySqlDb.xml" uuid="0a499dd2-2d40-4b4f-9881-fb25b6aeeeaa">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/java_db</jdbc-url>
+      <user-name>snake</user-name>
+      <user-password>dfd9dfc4dfcbdfc1dfcf</user-password>
+      <libraries>
+        <library>
+          <url>file://C:\Users\user\.m2\repository\mysql\mysql-connector-java\5.1.29\mysql-connector-java-5.1.29.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+

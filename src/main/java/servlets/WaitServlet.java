@@ -14,14 +14,13 @@ public class WaitServlet extends AbstractServlet {
     private Map<String, Integer> trials =  new HashMap<>();
 
     public WaitServlet() {
-        setPage("wait.html");
+        setPage(pagesData.WAIT_PAGE);
     }
 
     @Override
     public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String sessionId = request.getSession().getId();
         UserSession userSession = getSessionMap().get(sessionId);
-        Map<String, Object> pageData = new HashMap<>();
 
         if (!trials.containsKey(Thread.currentThread().getName())) {
             trials.put(Thread.currentThread().getName(), 0);

@@ -29,6 +29,7 @@ public class ServletFactory {
 
         TServlet servlet = servletClass.newInstance();
         servlet.setSessionMap(sessionMap);
+        servlet.setPagesData();
         return servlet;
 
     }
@@ -39,6 +40,7 @@ public class ServletFactory {
 
         TServlet servlet = servletClass.newInstance();
         servlet.setSessionMap(sessionMap);
+        servlet.setPagesData();
         servlet.setMessageService(messageService);
         (new Thread(servlet)).start();
         return servlet;

@@ -3,5 +3,4 @@
     <LOGIN_PAGE>login.html</LOGIN_PAGE>
     <SIGNUP_PAGE>signup.html</SIGNUP_PAGE>
     <WAIT_PAGE>wait.html</WAIT_PAGE>
-    <TIMER_PAGE>timer.html</TIMER_PAGE>
 </class>

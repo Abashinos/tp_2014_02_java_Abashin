@@ -17,14 +17,12 @@ import org.eclipse.jetty.rewrite.handler.RewriteHandler;
 
 public class GameServer {
 
-    //TODO: change to resource
     private Integer portNumber = null;
     private DBConnection dbConnection;
-    private GameServerData gameServerData = null;
 
     public GameServer () {
         if (portNumber == null) {
-            gameServerData = (GameServerData) ResourceFactory.getInstance().get("gameServerData");
+            GameServerData gameServerData = (GameServerData) ResourceFactory.getInstance().get("gameServerData");
             portNumber = gameServerData.getPort();
             this.dbConnection = new DBConnection( new DBConnectorMySQL() );
         }

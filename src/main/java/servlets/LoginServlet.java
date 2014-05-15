@@ -15,7 +15,7 @@ import static supplies.ResponseGenerator.*;
 public class LoginServlet extends AuthServlet {
 
     public LoginServlet() {
-        setPage("login.html");
+        setPage(pagesData.LOGIN_PAGE);
     }
 
     @Override

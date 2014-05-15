@@ -17,7 +17,7 @@ public abstract class AbstractMServlet extends AbstractServlet implements ISubsc
                 Thread.sleep(100);
             }
         } catch (InterruptedException ignored) {
-
+            //TODO: remove service and subscriber
         }
     }
 

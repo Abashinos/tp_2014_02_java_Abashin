@@ -1,7 +1,6 @@
 package servlets;
 
 import messaging.ServletFactory;
-import org.apache.http.auth.AUTH;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

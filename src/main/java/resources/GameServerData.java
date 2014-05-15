@@ -1,7 +1,7 @@
 package resources;
 
 public class GameServerData implements Resource {
-    private Integer portNumber;
+    private Integer portNumber = null;
 
     public Integer getPort() {
         if (portNumber == null) {
