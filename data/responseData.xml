@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class name="resources.ResponseData">
+    <CONTENT_TYPE>text/html;charset=utf8</CONTENT_TYPE>
+    <SUCCESS_STATUS>200</SUCCESS_STATUS>
+    <REDIRECT_STATUS>307</REDIRECT_STATUS>
+</class>

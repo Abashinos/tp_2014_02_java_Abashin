@@ -1,20 +1,37 @@
 package supplies;
 
+import resources.RandomSupplyData;
+import resources.resource_system.ResourceFactory;
+
 import java.util.Random;
 import static resources.RandomSupplyData.*;
+import java.util.UUID;
 
 public class RandomSupply {
 
-    private static final int alphabet_len = alphabet.length();
+    private static String alphabet = null;
+    private static Random random;
 
     public static String randomStringGenerator(int size) {
+        RandomSupplyData randomSupplyData = (RandomSupplyData) ResourceFactory.getInstance().get("randomSupplyData");
+        alphabet = randomSupplyData.alphabet;
         StringBuilder result = new StringBuilder();
-        Random random = new Random();
+        random = new Random();
 
         for (int i = 0; i < size; ++i) {
-            result.append( alphabet.charAt(random.nextInt(alphabet_len)) );
+            result.append( alphabet.charAt(random.nextInt(alphabet.length())) );
         }
 
         return result.toString();
+    }
+
+    public static Long randomUserIdGenerator() {
+        random = new Random();
+
+        return random.nextLong();
+    }
+
+    public static String randomSessionIdGenerator() {
+        return UUID.randomUUID().toString();
     }
 }

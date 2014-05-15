@@ -37,7 +37,6 @@ public class WaitServlet extends AbstractServlet {
             }
             finally {
                 trials.put(Thread.currentThread().getName(), trials.get(Thread.currentThread().getName()) + 1);
-                response.getWriter().println(PageGenerator.getPage(getPage(), pageData));
                 doGet(request, response);
             }
         }

@@ -1,18 +1,20 @@
 package connectors;
 
+import resources.resource_system.VFS;
 import services.dataSets.UserDataSet;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.service.ServiceRegistry;
+
+import java.io.FileNotFoundException;
 
 public final class DBConnection {
 
     protected final org.hibernate.cfg.Configuration conf = new org.hibernate.cfg.Configuration();
     protected SessionFactory sessionFactory;
 
-    // TODO: change setConfigurationProperties to resource
     public DBConnection(IConnector connector) {
-        connector.setConfigurationProperties(conf);
+        conf.configure(connector.getConfigurationFile());
         setDataSets();
         setSessionBuilderConfiguration();
     }

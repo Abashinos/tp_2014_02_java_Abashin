@@ -3,6 +3,8 @@ package main;
 import messaging.ServletFactory;
 import connectors.DBConnection;
 import connectors.DBConnectorMySQL;
+import resources.GameServerData;
+import resources.resource_system.ResourceFactory;
 import servlets.*;
 import org.eclipse.jetty.rewrite.handler.RedirectRegexRule;
 import org.eclipse.jetty.server.Handler;
@@ -15,11 +17,17 @@ import org.eclipse.jetty.rewrite.handler.RewriteHandler;
 
 public class GameServer {
 
-    private int portNumber = 8080;
+    //TODO: change to resource
+    private Integer portNumber = null;
     private DBConnection dbConnection;
+    private GameServerData gameServerData = null;
 
     public GameServer () {
-        this(8080);
+        if (portNumber == null) {
+            gameServerData = (GameServerData) ResourceFactory.getInstance().get("gameServerData");
+            portNumber = gameServerData.getPort();
+            this.dbConnection = new DBConnection( new DBConnectorMySQL() );
+        }
     }
     public GameServer (int port) {
         this.portNumber = port;
