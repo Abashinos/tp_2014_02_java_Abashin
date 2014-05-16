@@ -14,7 +14,6 @@ public class GetGameServerDataTest {
 
     }
 
-    //TODO: add test on "test.xml"
     @Test
     public void getGameServerDataTestGood() {
         gameServerData = (GameServerData) ResourceFactory.getInstance().get("gameServerData");

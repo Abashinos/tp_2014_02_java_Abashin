@@ -15,11 +15,14 @@ public class MessageService {
 
     }
 
-    public void addService(ISubscriber subscriber){
+    public void addService(ISubscriber subscriber) {
         messages.put(subscriber.getAddress(), new ConcurrentLinkedQueue<Message>());
     }
+    public void removeService(ISubscriber subscriber) {
+        messages.remove(subscriber.getAddress());
+    }
 
-    public void sendMessage(Message message){
+    public void sendMessage(Message message) {
         Queue<Message> messageQueue = messages.get(message.getTo());
         messageQueue.add(message);
     }

@@ -17,7 +17,8 @@ public abstract class AbstractMServlet extends AbstractServlet implements ISubsc
                 Thread.sleep(100);
             }
         } catch (InterruptedException ignored) {
-            //TODO: remove service and subscriber
+            removeSubscriber();
+            messageService.removeService(this);
         }
     }
 
@@ -38,4 +39,5 @@ public abstract class AbstractMServlet extends AbstractServlet implements ISubsc
     }
 
     protected abstract void setSubscriber();
+    protected abstract void removeSubscriber();
 }

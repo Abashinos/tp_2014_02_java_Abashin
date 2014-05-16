@@ -22,6 +22,9 @@ public class SignupServlet extends AuthServlet {
     public void setSubscriber() {
         this.getMessageService().getAddressService().setSignupServletAddress(this.getAddress());
     }
+    public void removeSubscriber() {
+        this.getMessageService().getAddressService().setSignupServletAddress(null);
+    }
 
     @Override
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
