@@ -2,14 +2,14 @@
 
 This is an educational project designed to emulate a game backend server and comprise popular Java libraries and patterns under the hood. Used technologies include:
   - [Jetty]
-  - [Hibernate] ([MySQL], [H2])
+  - [Hibernate][1] ([MySQL], [H2])
   - [FreeMarker]
   - [JUnit]
   - [Selenium]
   - [Mockito]
 
 [Jetty]: <http://www.eclipse.org/jetty/>
-[Hibernate]: <http://hibernate.org/>
+[1]: <http://hibernate.org/>
 [MySQL]: <https://www.mysql.com/>
 [H2]: <http://www.h2database.com/html/main.html>
 [FreeMarker]: <http://freemarker.org/>
